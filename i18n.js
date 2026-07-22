@@ -27,29 +27,29 @@
         '.write-label': ['Хат жазу'],
         '.section__title': ['Өзім туралы', 'Негізгі құзыреттер', 'Жұмыс тәжірибесі', 'Білім', 'Техникалық стек', 'Тілдер', 'Кәсіби ұстаным'],
         '.about__content p': [
-          'Қазақстанның мемлекеттік секторында 15 жылдан астам тәжірибесі бар АКТ басшысы. 5 жылдан астам дерекқорларды сүйемелдеу бөлімін басқардым, ұлттық маңызы бар тізілімдердің тұрақты жұмысын қамтамасыз еттім, НҚА мен регламенттерді әзірлеуге және ақпараттық қауіпсіздік мәселелеріне қатыстым. TIZILIM мемлекеттік платформасын іске қосуға үлес қостым және серверлік инфрақұрылымды басқаруды Ansible арқылы автоматтандырдым.',
-          'Кәсіби жолым Қазақстанның мемлекеттік секторымен байланысты. Сындарлы инфрақұрылымның, реттеуші талаптардың және азаматтар деректері үшін жауапкершіліктің ерекшелігін түсінемін. DevOps автоматтандыруын, Kubernetes және GitOps тәсілдерін дамытып келемін; LLM, ChromaDB және OpenAI API негізіндегі AI құралдарын жасауда практикалық тәжірибем бар.'
+          'Қазақстанның мемлекеттік секторында 15 жылдан астам тәжірибесі бар АКТ басшысы және инфрақұрылым инженері. 5 жылдан астам дерекқорларды сүйемелдеу бөлімін басқарып, ЦБДАН және БДИК ұлттық тізілімдеріне жауап бердім. Қазір TIZILIM мемлекеттік платформасының тәулік бойы жұмысын қамтамасыз етемін: Debian жүйесіндегі 5 сервер, 10+ Docker контейнері, L2/L3 қолдау, Nginx, PostgreSQL, Redis, Meilisearch және толық observability контуры. Команданы басқаруды hands-on жұмысымен, Ansible автоматтандыруымен, ақпараттық қауіпсіздікпен және AI-сервистер әзірлеумен ұштастырамын.',
+          'Басқарушылық тәжірибені hands-on пайдаланумен ұштастырамын: команданың жұмысын және есептілікті жолға қойып, production инцидентін дербес диагностикалай аламын, сұрауды оңтайландырамын, reverse proxy, мониторинг немесе Ansible playbook баптаймын. Басымдықтарым — өлшенетін қолжетімділік, тексерілген қалпына келтіру, деректер қауіпсіздігі және инфрақұрылымды бір адамға тәуелді етпейтін құжаттама.'
         ],
         '.card__title': ['АКТ басшылығы', 'НҚА және регламенттер', 'Ақпараттық қауіпсіздік', 'Жобалық құжаттама', 'Инфрақұрылым / DevOps', 'Дерекқорлар', 'AI / Цифрлық сервистер'],
         '.card__text': [
           'Команданы басқару, жоспарлау, KPI бақылау және есептілік',
           'Ақпараттық жүйелер бойынша нормативтік актілерді әзірлеу; ҚР ЦДИАӨМ-мен өзара іс-қимыл',
-          'Рұқсатсыз қол жеткізуден қорғау, қолжетімділікті басқару, әрекеттер аудиті, Grafana Loki',
+          'Рұқсатсыз қол жеткізуден қорғау, SSL/TLS, желіні сегменттеу, қолжетімділікті басқару және аудит',
           'Техникалық тапсырмалар, архитектуралық сызбалар, жоспарлар және талаптар спецификациялары',
-          'Linux, Docker, Nginx, SSL/TLS, Ansible, Prometheus, Grafana, Alertmanager',
-          'PostgreSQL 16, MS SQL, Lotus Domino, Redis — әкімшілендіру және оңтайландыру',
-          'Python, OpenAI API, ChromaDB, Aiogram — интеллектуалды сервистер әзірлеу'
+          'Linux, Docker Compose, Nginx L7, Ansible, observability және L2/L3 production support',
+          'PostgreSQL 16, Redis, Meilisearch, MS SQL, Lotus Domino — пайдалану және оңтайландыру',
+          'Python, Aiogram, MongoDB, ChromaDB, OpenAI API — интеллектуалды сервистер мен интеграциялар'
         ],
         '.timeline__date': ['06.2025 — қазіргі уақыт', '11.2019 — 05.2025 (5 жыл 7 ай)', '06.2018 — 11.2019 (1 жыл 6 ай)', '06.2014 — 06.2018 (4 жыл 1 ай)', '09.2011 — 03.2014 (2 жыл 7 ай)', '11.2010 — 09.2011 (11 ай)'],
         '.timeline__company': ['«Қазақстандық индустрия және экспорт орталығы QazIndustry» АҚ', 'ҚР ЦДИАӨМ «Мемлекеттік радиожиілік қызметі» РМК', '«Энергоинформ» АҚ', '«Ұлттық ақпараттық технологиялар» АҚ', '«Бизнес Софт» ЖШС', 'IT Research Center'],
         '.timeline__role': ['Цифрлық трансформация дирекциясының бас сарапшысы', 'Дерекқорларды сүйемелдеу бөлімінің бастығы', 'Бас маман — DBA / System Administrator', 'Бас маман — Lotus Domino DBA', 'Бизнес-талдаушы / Енгізу маманы', 'Енгізу және сүйемелдеу маманы'],
         '.timeline__list': [
-          '<li>TIZILIM ГАЖ-ды мерзімінде іске қосу; Debian 12 жүйесіндегі 5 сервердің uptime көрсеткіші — 99.9%</li><li>Prometheus, Grafana, Loki және Alertmanager мониторингі; инциденттерді 2 минутқа дейін анықтау</li><li>Ansible арқылы 5 серверді орталықтандырылған басқару және CI/CD релиздерін өрістету</li><li>PostgreSQL сұрауларын оңтайландыру, SSL/TLS және құжаттарды сақтау сервисі</li><li>Министрлікке арналған iDos AI Telegram-ботын әзірлеу және 3 инженерді үйлестіру</li>',
-          '<li>Бөлімді 5.5 жыл басқару, жоспарлау және 100% орындалу көрсеткіші</li><li>ЦБДАН және БДИК сындарлы тізілімдерін деректер жоғалтусыз сүйемелдеу</li><li>НҚА, ішкі регламенттер және ақпараттық қауіпсіздік талаптарын әзірлеуге қатысу</li><li>DWH-ты нөлден құру және талдаушылардың қол еңбегін 70% қысқарту</li>',
-          '<li>Lotus Domino v9.0 және Windows Server 2008 R2 әкімшілендіру</li><li>ARIS for SAP Solutions бизнес-процестері және жұмыс тобын оқыту</li><li>IAM, лицензиялар мониторингі және инциденттерді жою</li>',
-          '<li>5+ мемлекеттік орган үшін Lotus Domino дерекқорларын әкімшілендіру</li><li>Реттеушілік есептілікті автоматтандырып, дайындау уақытын 50% қысқарту</li>',
-          '<li>Ұлттық медициналық холдингтің 3 мекемесінде МАЖ енгізу</li><li>Талаптар спецификацияларын, тест-жоспарлар мен пайдаланушы нұсқаулықтарын әзірлеу</li>',
-          '<li>C++ тілінде монополистер мониторингі ақпараттық жүйесін әзірлеу және өрістету</li><li>Тест-жоспарлар, деректерді жүктеу және пайдаланушы құжаттамасы</li>'
+          '<li>TIZILIM ГАЖ-ды тәулік бойы пайдалану: Debian 12 жүйесіндегі 5 сервер, uptime 99.9% және L2/L3 қолдау</li><li>10+ Docker контейнері, Docker Compose, volumes және persistent storage</li><li>Nginx L7 load balancer, reverse proxy және 6+ доменге SSL termination</li><li>Prometheus, Grafana, Loki, Alertmanager және Zabbix; 14 ереже, инциденттерді 2 минутқа дейін анықтау</li><li>PostgreSQL 16.6, Redis 7.4 және Meilisearch 1.8 әкімшілендіру және оңтайландыру</li><li>Ansible арқылы серверлерді басқару, релиздерді өрістету және dev.qazindustry.gov.kz тест ортасын баптау</li><li>Ubuntu 22.04 жүйесінде құжаттарды индекстеу сервисі және Wildcard SSL</li><li>Министрлікке арналған iDos AI-ботын әзірлеу және 3 инженерді үйлестіру</li>',
+          '<li>Бөлімді 5.5 жыл басқару, жоспарлау және 100% орындалу көрсеткіші</li><li>ЦБДАН және БДИК сындарлы тізілімдерін 5 жыл деректер жоғалтусыз сүйемелдеу</li><li>НҚА, ішкі регламенттер және ақпараттық қауіпсіздік талаптарын әзірлеуге қатысу</li><li>DWH-ты нөлден құрып, талдаушылардың қол еңбегін 70% қысқарту</li><li>Есептер мен ДҚ тестілеу, реттеуші шешімдер үшін статистиканы қалыптастыру</li>',
+          '<li>Lotus Domino v9.0 және Windows Server 2008 R2 әкімшілендіру, резервтік көшірмелерді бақылап қалпына келтіру</li><li>Серверлер мен қолданбалардың өнімділігін мониторингтеу және пайдаланушыларды қолдау</li><li>ARIS for SAP Solutions бизнес-процестері және жұмыс тобын оқыту</li><li>IAM, лицензиялар мониторингі және инциденттерді жою</li>',
+          '<li>5+ мемлекеттік орган үшін Lotus Domino дерекқорларын әкімшілендіру, репликация және объектілерді қалпына келтіру</li><li>Журналдарды талдау, бұғаттаулар мен репликация қателерін жою, жүйені баптау</li><li>Бақылау құжаттары, НҚА және мемлекеттік органдар тапсырмалары бойынша есептер әзірлеу</li>',
+          '<li>Ұлттық медициналық холдингтің 3 мекемесінде МАЖ енгізу және пайдаланушыларды оқыту</li><li>Бизнес-талдау, талаптар спецификациялары, тест-жоспарлар, штаттан тыс сценарийлер және нұсқаулықтар</li>',
+          '<li>C++ тілінде есеп айырысу жүйесін әзірлеу және енгізуді сүйемелдеу</li><li>Монополистер мониторингі АЖ-ны республика бойынша өрістету, жұмыс орындары, тест-жоспарлар және құжаттама</li>'
         ],
         '.education__title': ['Esil University, Астана', 'Ақмола қаржы-экономикалық колледжі'],
         '.education__detail': ['Бакалавр, Ақпараттық жүйелер / АКТ', 'Техник-бағдарламашы, ЕТ бағдарламалық жасақтамасы'],
@@ -76,29 +76,29 @@
         '.write-label': ['Contact me'],
         '.section__title': ['About', 'Core expertise', 'Work experience', 'Education', 'Technical stack', 'Languages', 'Professional approach'],
         '.about__content p': [
-          'ICT leader with more than 15 years of experience in Kazakhstan’s public sector. I led a database support department for over five years, ensured the operation of nationally critical registries, contributed to regulations and information-security controls, helped launch the TIZILIM government platform, and introduced Ansible automation for server infrastructure.',
-          'My career has been focused on Kazakhstan’s public sector. I understand critical infrastructure, regulatory requirements and responsibility for citizens’ data. I continue developing DevOps automation, Kubernetes and GitOps practices, and have hands-on experience building AI tools with LLMs, ChromaDB and the OpenAI API.'
+          'ICT leader and infrastructure engineer with 15+ years in Kazakhstan’s public sector. I led a database-support department for more than five years and was responsible for the national CBDAN and BDIK registries. I now operate the TIZILIM government platform 24/7 across five Debian servers, 10+ Docker containers, L2/L3 support, Nginx, PostgreSQL, Redis, Meilisearch and a full observability stack. I combine team leadership with hands-on engineering, Ansible automation, information security and AI-service development.',
+          'I combine leadership with hands-on operations: I can establish team processes and executive reporting, then personally diagnose a production incident, optimize a query, or configure a reverse proxy, monitoring stack or Ansible playbook. My priorities are measurable availability, tested recovery, data security and documentation that removes single-person dependency.'
         ],
         '.card__title': ['ICT leadership', 'Regulation and procedures', 'Information security', 'Project documentation', 'Infrastructure / DevOps', 'Databases', 'AI / Digital services'],
         '.card__text': [
           'Team leadership, planning, KPI control and executive reporting',
           'Drafting information-system regulations and working with Kazakhstan’s digital-development ministry',
-          'Access control, audit trails, protection against unauthorized access and Grafana Loki',
+          'Unauthorized-access protection, SSL/TLS, network segmentation, access control and audit trails',
           'Technical specifications, architecture diagrams, implementation plans and requirements',
-          'Linux, Docker, Nginx, SSL/TLS, Ansible, Prometheus, Grafana, Alertmanager',
-          'PostgreSQL 16, MS SQL, Lotus Domino and Redis administration and optimization',
-          'Intelligent services built with Python, OpenAI API, ChromaDB and Aiogram'
+          'Linux, Docker Compose, Nginx L7, Ansible, observability and L2/L3 production support',
+          'PostgreSQL 16, Redis, Meilisearch, MS SQL and Lotus Domino operations and optimization',
+          'Intelligent services and integrations with Python, Aiogram, MongoDB, ChromaDB and OpenAI API'
         ],
         '.timeline__date': ['Jun 2025 — Present', 'Nov 2019 — May 2025 (5 years 7 months)', 'Jun 2018 — Nov 2019 (1 year 6 months)', 'Jun 2014 — Jun 2018 (4 years 1 month)', 'Sep 2011 — Mar 2014 (2 years 7 months)', 'Nov 2010 — Sep 2011 (11 months)'],
         '.timeline__company': ['QazIndustry — Kazakhstan Industry and Export Center JSC', 'State Radio Frequency Service, Ministry of Digital Development of Kazakhstan', 'Energoinform JSC', 'National Information Technologies JSC', 'Business Soft LLP', 'IT Research Center'],
         '.timeline__role': ['Chief Expert, Digital Transformation Directorate', 'Head of Database Support Department', 'Chief Specialist — DBA / System Administrator', 'Chief Specialist — Lotus Domino DBA', 'Business Analyst / Implementation Specialist', 'Implementation and Support Specialist'],
         '.timeline__list': [
-          '<li>Launched the TIZILIM GIS on schedule; maintained 99.9% uptime across five Debian 12 servers</li><li>Built monitoring with Prometheus, Grafana, Loki and Alertmanager, reducing incident detection to under two minutes</li><li>Centralized five-server management with Ansible and supported CI/CD releases</li><li>Optimized PostgreSQL, managed SSL/TLS and delivered a searchable document service</li><li>Built the iDos AI Telegram bot for the ministry and coordinated three engineers</li>',
-          '<li>Led the department for 5.5 years with 100% plan completion</li><li>Supported the critical CBDAN and BDIK national registries with zero data loss</li><li>Contributed to regulations, internal procedures and information-security controls</li><li>Built a DWH from scratch and reduced analysts’ manual work by 70%</li>',
-          '<li>Administered Lotus Domino v9.0 and Windows Server 2008 R2 with tested recovery</li><li>Modelled business processes in ARIS for SAP Solutions and trained the working group</li><li>Managed IAM, licenses and incident resolution</li>',
-          '<li>Administered Lotus Domino databases for more than five government agencies</li><li>Automated regulatory reporting and reduced preparation time by 50%</li>',
-          '<li>Implemented a medical information system in three National Medical Holding institutions</li><li>Produced requirements, test plans and user documentation</li>',
-          '<li>Developed and deployed a C++ monopoly-monitoring information system for a Kazakhstan regulator</li><li>Prepared test plans, data loads and user documentation</li>'
+          '<li>Operated TIZILIM 24/7 across five Debian 12 servers with 99.9% uptime and L2/L3 support</li><li>Managed 10+ Docker containers, Docker Compose, volumes and persistent storage</li><li>Configured Nginx L7 load balancing, reverse proxy and SSL termination for 6+ domains</li><li>Built observability with Prometheus, Grafana, Loki, Alertmanager and Zabbix; 14 rules and sub-two-minute incident detection</li><li>Administered and optimized PostgreSQL 16.6, Redis 7.4 and Meilisearch 1.8</li><li>Automated server management with Ansible, deployed releases and configured dev.qazindustry.gov.kz</li><li>Delivered an indexed document service on Ubuntu 22.04 and managed Wildcard SSL</li><li>Built the ministry’s iDos AI bot and coordinated three engineers</li>',
+          '<li>Led the department for 5.5 years with 100% plan completion</li><li>Operated the critical CBDAN and BDIK national registries for five years with zero data loss</li><li>Contributed to regulations, internal procedures and information-security controls</li><li>Built a DWH from scratch and reduced analysts’ manual work by 70%</li><li>Tested reports and databases and produced regulator-facing statistics</li>',
+          '<li>Administered Lotus Domino v9.0 and Windows Server 2008 R2 with tested backup recovery</li><li>Monitored server and application performance and supported users</li><li>Modelled business processes in ARIS for SAP Solutions and trained the working group</li><li>Managed IAM, licenses and incident resolution</li>',
+          '<li>Administered Lotus Domino databases for 5+ government agencies, including replication and object recovery</li><li>Analysed logs, resolved locks and replication errors, and configured system structures</li><li>Built reports for controlled documents, regulations and government assignments</li>',
+          '<li>Implemented and trained users on a medical information system in three National Medical Holding institutions</li><li>Performed business analysis and testing; produced requirements, test plans, exception scenarios and user guides</li>',
+          '<li>Developed a C++ billing system and supported its implementation</li><li>Rolled out a nationwide monopoly-monitoring system, workstations, content-server data, tests and documentation</li>'
         ],
         '.education__title': ['Esil University, Astana', 'Akmola College of Finance and Economics'],
         '.education__detail': ['Bachelor’s degree, Information Systems / ICT', 'Software Technician, Computer Systems Software'],
