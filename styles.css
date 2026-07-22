@@ -1065,8 +1065,8 @@ ul { list-style: none; }
   }
 }
 
-/* Mobile */
-@media (max-width: 639px) {
+/* Compact navigation */
+@media (max-width: 900px) {
   html, body {
     overflow-x: hidden;
   }
@@ -1142,6 +1142,11 @@ ul { list-style: none; }
   .language-switcher {
     margin: 1rem 0 0;
   }
+
+}
+
+/* Mobile layout */
+@media (max-width: 639px) {
 
   .hero__photo { margin-bottom: 1rem; }
 
