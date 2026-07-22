@@ -1,0 +1,177 @@
+(function () {
+  'use strict';
+
+  const selectors = [
+    '.skip-link', '.navbar__link', '.location-text', '.hero__eyebrow', '.hero__name',
+    '.hero__position', '.hero__tagline', '.download-label', '.write-label',
+    '.section__title', '.about__content p', '.card__title', '.card__text',
+    '.timeline__date', '.timeline__company', '.timeline__role', '.timeline__list',
+    '.education__title', '.education__detail', '.techstack__category',
+    '.language__name', '.language__level', '.footer__title', '.footer__copy'
+  ];
+
+  const copy = {
+    kk: {
+      title: 'Симагомбетов Нартай — АКТ басшысы | DevOps / DBA',
+      description: 'Симагомбетов Нартай Мерамовичтің түйіндемесі — АКТ басшысы, ҚР мемлекеттік секторында 15+ жыл, DevOps, DBA және ақпараттық қауіпсіздік.',
+      aria: { nav: 'Негізгі навигация', scroll: 'Төмен айналдыру', top: 'Жоғары', photo: 'Симагомбетов Нартай Мерамович' },
+      values: {
+        '.skip-link': ['Мазмұнға өту'],
+        '.navbar__link': ['Өзім туралы', 'Құзыреттер', 'Тәжірибе', 'Білім', 'Стек', 'Тілдер', 'Байланыс'],
+        '.location-text': ['Астана, Қазақстан', 'Астана, Қазақстан'],
+        '.hero__eyebrow': ['Басқару · Инфрақұрылым · Деректер'],
+        '.hero__name': ['Симагомбетов<br>Нартай Мерамович'],
+        '.hero__position': ['АКТ басшысы · DevOps / DBA'],
+        '.hero__tagline': ['ҚР мемлекеттік секторының сындарлы инфрақұрылымы · IT саласында 15+ жыл · басқаруда 5+ жыл · НҚА · АБ · цифрлық сервистер'],
+        '.download-label': ['CV жүктеу'],
+        '.write-label': ['Хат жазу'],
+        '.section__title': ['Өзім туралы', 'Негізгі құзыреттер', 'Жұмыс тәжірибесі', 'Білім', 'Техникалық стек', 'Тілдер', 'Кәсіби ұстаным'],
+        '.about__content p': [
+          'Қазақстанның мемлекеттік секторында 15 жылдан астам тәжірибесі бар АКТ басшысы. 5 жылдан астам дерекқорларды сүйемелдеу бөлімін басқардым, ұлттық маңызы бар тізілімдердің тұрақты жұмысын қамтамасыз еттім, НҚА мен регламенттерді әзірлеуге және ақпараттық қауіпсіздік мәселелеріне қатыстым. TIZILIM мемлекеттік платформасын іске қосуға үлес қостым және серверлік инфрақұрылымды басқаруды Ansible арқылы автоматтандырдым.',
+          'Кәсіби жолым Қазақстанның мемлекеттік секторымен байланысты. Сындарлы инфрақұрылымның, реттеуші талаптардың және азаматтар деректері үшін жауапкершіліктің ерекшелігін түсінемін. DevOps автоматтандыруын, Kubernetes және GitOps тәсілдерін дамытып келемін; LLM, ChromaDB және OpenAI API негізіндегі AI құралдарын жасауда практикалық тәжірибем бар.'
+        ],
+        '.card__title': ['АКТ басшылығы', 'НҚА және регламенттер', 'Ақпараттық қауіпсіздік', 'Жобалық құжаттама', 'Инфрақұрылым / DevOps', 'Дерекқорлар', 'AI / Цифрлық сервистер'],
+        '.card__text': [
+          'Команданы басқару, жоспарлау, KPI бақылау және есептілік',
+          'Ақпараттық жүйелер бойынша нормативтік актілерді әзірлеу; ҚР ЦДИАӨМ-мен өзара іс-қимыл',
+          'Рұқсатсыз қол жеткізуден қорғау, қолжетімділікті басқару, әрекеттер аудиті, Grafana Loki',
+          'Техникалық тапсырмалар, архитектуралық сызбалар, жоспарлар және талаптар спецификациялары',
+          'Linux, Docker, Nginx, SSL/TLS, Ansible, Prometheus, Grafana, Alertmanager',
+          'PostgreSQL 16, MS SQL, Lotus Domino, Redis — әкімшілендіру және оңтайландыру',
+          'Python, OpenAI API, ChromaDB, Aiogram — интеллектуалды сервистер әзірлеу'
+        ],
+        '.timeline__date': ['06.2025 — қазіргі уақыт', '11.2019 — 05.2025 (5 жыл 7 ай)', '06.2018 — 11.2019 (1 жыл 6 ай)', '06.2014 — 06.2018 (4 жыл 1 ай)', '09.2011 — 03.2014 (2 жыл 7 ай)', '11.2010 — 09.2011 (11 ай)'],
+        '.timeline__company': ['«Қазақстандық индустрия және экспорт орталығы QazIndustry» АҚ', 'ҚР ЦДИАӨМ «Мемлекеттік радиожиілік қызметі» РМК', '«Энергоинформ» АҚ', '«Ұлттық ақпараттық технологиялар» АҚ', '«Бизнес Софт» ЖШС', 'IT Research Center'],
+        '.timeline__role': ['Цифрлық трансформация дирекциясының бас сарапшысы', 'Дерекқорларды сүйемелдеу бөлімінің бастығы', 'Бас маман — DBA / System Administrator', 'Бас маман — Lotus Domino DBA', 'Бизнес-талдаушы / Енгізу маманы', 'Енгізу және сүйемелдеу маманы'],
+        '.timeline__list': [
+          '<li>TIZILIM ГАЖ-ды мерзімінде іске қосу; Debian 12 жүйесіндегі 5 сервердің uptime көрсеткіші — 99.9%</li><li>Prometheus, Grafana, Loki және Alertmanager мониторингі; инциденттерді 2 минутқа дейін анықтау</li><li>Ansible арқылы 5 серверді орталықтандырылған басқару және CI/CD релиздерін өрістету</li><li>PostgreSQL сұрауларын оңтайландыру, SSL/TLS және құжаттарды сақтау сервисі</li><li>Министрлікке арналған iDos AI Telegram-ботын әзірлеу және 3 инженерді үйлестіру</li>',
+          '<li>Бөлімді 5.5 жыл басқару, жоспарлау және 100% орындалу көрсеткіші</li><li>ЦБДАН және БДИК сындарлы тізілімдерін деректер жоғалтусыз сүйемелдеу</li><li>НҚА, ішкі регламенттер және ақпараттық қауіпсіздік талаптарын әзірлеуге қатысу</li><li>DWH-ты нөлден құру және талдаушылардың қол еңбегін 70% қысқарту</li>',
+          '<li>Lotus Domino v9.0 және Windows Server 2008 R2 әкімшілендіру</li><li>ARIS for SAP Solutions бизнес-процестері және жұмыс тобын оқыту</li><li>IAM, лицензиялар мониторингі және инциденттерді жою</li>',
+          '<li>5+ мемлекеттік орган үшін Lotus Domino дерекқорларын әкімшілендіру</li><li>Реттеушілік есептілікті автоматтандырып, дайындау уақытын 50% қысқарту</li>',
+          '<li>Ұлттық медициналық холдингтің 3 мекемесінде МАЖ енгізу</li><li>Талаптар спецификацияларын, тест-жоспарлар мен пайдаланушы нұсқаулықтарын әзірлеу</li>',
+          '<li>C++ тілінде монополистер мониторингі ақпараттық жүйесін әзірлеу және өрістету</li><li>Тест-жоспарлар, деректерді жүктеу және пайдаланушы құжаттамасы</li>'
+        ],
+        '.education__title': ['Esil University, Астана', 'Ақмола қаржы-экономикалық колледжі'],
+        '.education__detail': ['Бакалавр, Ақпараттық жүйелер / АКТ', 'Техник-бағдарламашы, ЕТ бағдарламалық жасақтамасы'],
+        '.techstack__category': ['ДҚБЖ', 'Мониторинг / Логтар', 'Автоматтандыру', 'Инфрақұрылым', 'Тілдер / Скрипттер', 'AI / Интеграциялар', 'Құралдар'],
+        '.language__name': ['Қазақ тілі', 'Орыс тілі', 'Ағылшын тілі'],
+        '.language__level': ['Ана тілі (C2)', 'Еркін (C2)', 'Ортадан жоғары (B2)'],
+        '.footer__title': ['Байланыс'],
+        '.footer__copy': ['&copy; <span id="currentYear">2026</span> Симагомбетов Нартай']
+      }
+    },
+    en: {
+      title: 'Simagombetov Nartay — ICT Leader | DevOps / DBA',
+      description: 'Resume of Simagombetov Nartay Meramovich — ICT leader with 15+ years in Kazakhstan’s public sector, DevOps, DBA and information security.',
+      aria: { nav: 'Primary navigation', scroll: 'Scroll down', top: 'Back to top', photo: 'Simagombetov Nartay Meramovich' },
+      values: {
+        '.skip-link': ['Skip to content'],
+        '.navbar__link': ['About', 'Expertise', 'Experience', 'Education', 'Stack', 'Languages', 'Contacts'],
+        '.location-text': ['Astana, Kazakhstan', 'Astana, Kazakhstan'],
+        '.hero__eyebrow': ['Leadership · Infrastructure · Data'],
+        '.hero__name': ['Simagombetov<br>Nartay Meramovich'],
+        '.hero__position': ['ICT Leader · DevOps / DBA'],
+        '.hero__tagline': ['Critical public-sector infrastructure · 15+ years in IT · 5+ years in leadership · Regulation · Security · Digital services'],
+        '.download-label': ['Download CV'],
+        '.write-label': ['Contact me'],
+        '.section__title': ['About', 'Core expertise', 'Work experience', 'Education', 'Technical stack', 'Languages', 'Professional approach'],
+        '.about__content p': [
+          'ICT leader with more than 15 years of experience in Kazakhstan’s public sector. I led a database support department for over five years, ensured the operation of nationally critical registries, contributed to regulations and information-security controls, helped launch the TIZILIM government platform, and introduced Ansible automation for server infrastructure.',
+          'My career has been focused on Kazakhstan’s public sector. I understand critical infrastructure, regulatory requirements and responsibility for citizens’ data. I continue developing DevOps automation, Kubernetes and GitOps practices, and have hands-on experience building AI tools with LLMs, ChromaDB and the OpenAI API.'
+        ],
+        '.card__title': ['ICT leadership', 'Regulation and procedures', 'Information security', 'Project documentation', 'Infrastructure / DevOps', 'Databases', 'AI / Digital services'],
+        '.card__text': [
+          'Team leadership, planning, KPI control and executive reporting',
+          'Drafting information-system regulations and working with Kazakhstan’s digital-development ministry',
+          'Access control, audit trails, protection against unauthorized access and Grafana Loki',
+          'Technical specifications, architecture diagrams, implementation plans and requirements',
+          'Linux, Docker, Nginx, SSL/TLS, Ansible, Prometheus, Grafana, Alertmanager',
+          'PostgreSQL 16, MS SQL, Lotus Domino and Redis administration and optimization',
+          'Intelligent services built with Python, OpenAI API, ChromaDB and Aiogram'
+        ],
+        '.timeline__date': ['Jun 2025 — Present', 'Nov 2019 — May 2025 (5 years 7 months)', 'Jun 2018 — Nov 2019 (1 year 6 months)', 'Jun 2014 — Jun 2018 (4 years 1 month)', 'Sep 2011 — Mar 2014 (2 years 7 months)', 'Nov 2010 — Sep 2011 (11 months)'],
+        '.timeline__company': ['QazIndustry — Kazakhstan Industry and Export Center JSC', 'State Radio Frequency Service, Ministry of Digital Development of Kazakhstan', 'Energoinform JSC', 'National Information Technologies JSC', 'Business Soft LLP', 'IT Research Center'],
+        '.timeline__role': ['Chief Expert, Digital Transformation Directorate', 'Head of Database Support Department', 'Chief Specialist — DBA / System Administrator', 'Chief Specialist — Lotus Domino DBA', 'Business Analyst / Implementation Specialist', 'Implementation and Support Specialist'],
+        '.timeline__list': [
+          '<li>Launched the TIZILIM GIS on schedule; maintained 99.9% uptime across five Debian 12 servers</li><li>Built monitoring with Prometheus, Grafana, Loki and Alertmanager, reducing incident detection to under two minutes</li><li>Centralized five-server management with Ansible and supported CI/CD releases</li><li>Optimized PostgreSQL, managed SSL/TLS and delivered a searchable document service</li><li>Built the iDos AI Telegram bot for the ministry and coordinated three engineers</li>',
+          '<li>Led the department for 5.5 years with 100% plan completion</li><li>Supported the critical CBDAN and BDIK national registries with zero data loss</li><li>Contributed to regulations, internal procedures and information-security controls</li><li>Built a DWH from scratch and reduced analysts’ manual work by 70%</li>',
+          '<li>Administered Lotus Domino v9.0 and Windows Server 2008 R2 with tested recovery</li><li>Modelled business processes in ARIS for SAP Solutions and trained the working group</li><li>Managed IAM, licenses and incident resolution</li>',
+          '<li>Administered Lotus Domino databases for more than five government agencies</li><li>Automated regulatory reporting and reduced preparation time by 50%</li>',
+          '<li>Implemented a medical information system in three National Medical Holding institutions</li><li>Produced requirements, test plans and user documentation</li>',
+          '<li>Developed and deployed a C++ monopoly-monitoring information system for a Kazakhstan regulator</li><li>Prepared test plans, data loads and user documentation</li>'
+        ],
+        '.education__title': ['Esil University, Astana', 'Akmola College of Finance and Economics'],
+        '.education__detail': ['Bachelor’s degree, Information Systems / ICT', 'Software Technician, Computer Systems Software'],
+        '.techstack__category': ['Databases', 'Monitoring / Logs', 'Automation', 'Infrastructure', 'Languages / Scripting', 'AI / Integrations', 'Tools'],
+        '.language__name': ['Kazakh', 'Russian', 'English'],
+        '.language__level': ['Native (C2)', 'Fluent (C2)', 'Upper-intermediate (B2)'],
+        '.footer__title': ['Contacts'],
+        '.footer__copy': ['&copy; <span id="currentYear">2026</span> Simagombetov Nartay']
+      }
+    }
+  };
+
+  const originals = {};
+  let renderedLanguage = 'ru';
+
+  function collectOriginals() {
+    selectors.forEach(function (selector) {
+      originals[selector] = Array.from(document.querySelectorAll(selector)).map(function (element) {
+        return element.innerHTML;
+      });
+    });
+  }
+
+  function setValues(values) {
+    selectors.forEach(function (selector) {
+      const items = values[selector] || originals[selector];
+      document.querySelectorAll(selector).forEach(function (element, index) {
+        if (items[index] !== undefined) element.innerHTML = items[index];
+      });
+    });
+  }
+
+  function finalizeCounters() {
+    document.querySelectorAll('.counter').forEach(function (element) {
+      const target = Number(element.dataset.target);
+      const decimals = Number(element.dataset.decimals || 0);
+      element.textContent = target.toFixed(decimals) + (element.dataset.suffix || '');
+    });
+  }
+
+  function applyLanguage(language) {
+    const lang = copy[language] ? language : 'ru';
+    const selected = copy[lang];
+    const contentChanged = lang !== renderedLanguage;
+    if (contentChanged) setValues(selected ? selected.values : originals);
+    renderedLanguage = lang;
+    document.documentElement.lang = lang;
+    document.title = selected ? selected.title : 'Симагомбетов Нартай — Руководитель ИКТ | DevOps / DBA';
+    const description = selected ? selected.description : 'Резюме Симагомбетова Нартая Мерамовича — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ';
+    document.querySelector('meta[name="description"]').content = description;
+    document.querySelector('meta[property="og:title"]').content = document.title;
+    document.querySelector('meta[property="og:description"]').content = description;
+    const defaultAria = { nav: 'Основная навигация', scroll: 'Прокрутить вниз', top: 'Наверх', photo: 'Симагомбетов Нартай Мерамович' };
+    const aria = selected ? selected.aria : defaultAria;
+    document.querySelector('#navbar').setAttribute('aria-label', aria.nav);
+    document.querySelector('.hero__scroll').setAttribute('aria-label', aria.scroll);
+    document.querySelector('#scrollTop').setAttribute('aria-label', aria.top);
+    document.querySelector('.hero__photo img').setAttribute('alt', aria.photo);
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) languageSelect.value = lang;
+    localStorage.setItem('language', lang);
+    if (contentChanged) finalizeCounters();
+    window.dispatchEvent(new CustomEvent('site-language-change', { detail: { language: lang } }));
+  }
+
+  function init() {
+    collectOriginals();
+    const languageSelect = document.getElementById('languageSelect');
+    if (languageSelect) {
+      languageSelect.addEventListener('change', function () { applyLanguage(languageSelect.value); });
+    }
+    applyLanguage(localStorage.getItem('language') || 'ru');
+  }
+
+  window.siteI18n = { init: init, applyLanguage: applyLanguage };
+})();

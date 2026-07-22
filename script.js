@@ -9,10 +9,30 @@
   const themeToggle = document.getElementById('themeToggle');
   const html = document.documentElement;
 
+  const uiLabels = {
+    ru: { light: 'Включить светлую тему', dark: 'Включить тёмную тему', open: 'Открыть меню', close: 'Закрыть меню', languages: 'Выбор языка' },
+    kk: { light: 'Жарық тақырыпты қосу', dark: 'Қараңғы тақырыпты қосу', open: 'Мәзірді ашу', close: 'Мәзірді жабу', languages: 'Тілді таңдау' },
+    en: { light: 'Use light theme', dark: 'Use dark theme', open: 'Open menu', close: 'Close menu', languages: 'Language selection' }
+  };
+
+  function currentLabels() {
+    return uiLabels[html.lang] || uiLabels.ru;
+  }
+
+  function updateThemeLabel(theme) {
+    themeToggle.setAttribute(
+      'aria-label',
+      theme === 'dark' ? currentLabels().light : currentLabels().dark
+    );
+  }
+
   function setTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    updateThemeLabel(theme);
   }
+
+  updateThemeLabel(html.getAttribute('data-theme') || 'light');
 
   themeToggle.addEventListener('click', function () {
     const current = html.getAttribute('data-theme');
@@ -27,12 +47,14 @@
 
   function openMenu() {
     navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', currentLabels().close);
     navMenu.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', currentLabels().open);
     navMenu.classList.remove('open');
     document.body.style.overflow = '';
   }
@@ -45,6 +67,9 @@
   navMenu.querySelectorAll('.navbar__link').forEach(function (link) {
     link.addEventListener('click', closeMenu);
   });
+
+  const languageSelect = document.getElementById('languageSelect');
+  if (languageSelect) languageSelect.addEventListener('change', closeMenu);
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && navMenu.classList.contains('open')) {
@@ -172,6 +197,7 @@
     const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
     const suffix = el.getAttribute('data-suffix') || '';
     const duration = 1500;
+
     const start = performance.now();
 
     function easeOut(t) {
@@ -213,6 +239,12 @@
     counterObserver.observe(el);
   });
 
+  window.addEventListener('site-language-change', function () {
+    updateThemeLabel(html.getAttribute('data-theme') || 'dark');
+    navToggle.setAttribute('aria-label', navMenu.classList.contains('open') ? currentLabels().close : currentLabels().open);
+    if (languageSelect) languageSelect.setAttribute('aria-label', currentLabels().languages);
+  });
+
   // ========================================
   // Language Bars Animation
   // ========================================
@@ -232,7 +264,12 @@
   );
 
   document.querySelectorAll('.language__fill').forEach(function (el) {
-    langObserver.observe(el);
+    if (prefersReducedMotion) {
+      el.style.setProperty('--fill-width', el.getAttribute('data-width') + '%');
+      el.classList.add('animated');
+    } else {
+      langObserver.observe(el);
+    }
   });
 
   // ========================================
@@ -283,4 +320,9 @@
   updateNavbar();
   updateScrollTopBtn();
   updateTimeline();
+
+  if (window.siteI18n) window.siteI18n.init();
+
+  const currentYear = document.getElementById('currentYear');
+  if (currentYear) currentYear.textContent = new Date().getFullYear();
 })();
