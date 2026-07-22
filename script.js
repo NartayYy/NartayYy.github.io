@@ -226,6 +226,46 @@
   });
 
   // ========================================
+  // Active Timeline Item
+  // ========================================
+  const timelineItems = Array.from(document.querySelectorAll('.timeline__item'));
+
+  if (timelineItems.length) {
+    if (prefersReducedMotion) {
+      timelineItems[0].classList.add('is-current');
+    } else {
+      const timelineVisibility = new Map();
+      const timelineItemObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            timelineVisibility.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+          });
+
+          let currentItem = null;
+          let highestRatio = 0;
+          timelineItems.forEach(function (item) {
+            const ratio = timelineVisibility.get(item) || 0;
+            if (ratio > highestRatio) {
+              highestRatio = ratio;
+              currentItem = item;
+            }
+          });
+
+          timelineItems.forEach(function (item) {
+            item.classList.toggle('is-current', item === currentItem && highestRatio > 0);
+          });
+        },
+        { threshold: [0, 0.15, 0.35, 0.6], rootMargin: '-18% 0px -32% 0px' }
+      );
+
+      timelineItems.forEach(function (item) {
+        timelineVisibility.set(item, 0);
+        timelineItemObserver.observe(item);
+      });
+    }
+  }
+
+  // ========================================
   // Counter Animation
   // ========================================
   function animateCounter(el) {

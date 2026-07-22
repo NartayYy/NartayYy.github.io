@@ -3,7 +3,7 @@
 
   const selectors = [
     '.skip-link', '.navbar__link', '.location-text', '.hero__eyebrow', '.hero__name',
-    '.hero__position', '.hero__tagline', '.download-label', '.write-label',
+    '.hero__position', '.hero__tagline', '.download-label', '.experience-label',
     '.section__title', '.about__content p', '.card__title', '.card__text',
     '.timeline__date', '.timeline__company', '.timeline__role', '.timeline__list',
     '.education__title', '.education__detail', '.techstack__category',
@@ -24,7 +24,7 @@
         '.hero__position': ['АКТ басшысы · DevOps / DBA'],
         '.hero__tagline': ['ҚР мемлекеттік секторының сындарлы инфрақұрылымы · IT саласында 15+ жыл · басқаруда 5+ жыл · НҚА · АБ · цифрлық сервистер'],
         '.download-label': ['CV жүктеу'],
-        '.write-label': ['Хат жазу'],
+        '.experience-label': ['Тәжірибені көру'],
         '.section__title': ['Өзім туралы', 'Негізгі құзыреттер', 'Жұмыс тәжірибесі', 'Білім', 'Техникалық стек', 'Тілдер', 'Кәсіби ұстаным'],
         '.about__content p': [
           'Қазақстанның мемлекеттік секторында 15 жылдан астам тәжірибесі бар АКТ басшысы және инфрақұрылым инженері. 5 жылдан астам дерекқорларды сүйемелдеу бөлімін басқарып, ЦБДАН және БДИК ұлттық тізілімдеріне жауап бердім. Қазір TIZILIM мемлекеттік платформасының тәулік бойы жұмысын қамтамасыз етемін: Debian жүйесіндегі 5 сервер, 10+ Docker контейнері, L2/L3 қолдау, Nginx, PostgreSQL, Redis, Meilisearch және толық observability контуры. Команданы басқаруды hands-on жұмысымен, Ansible автоматтандыруымен, ақпараттық қауіпсіздікпен және AI-сервистер әзірлеумен ұштастырамын.',
@@ -73,7 +73,7 @@
         '.hero__position': ['ICT Leader · DevOps / DBA'],
         '.hero__tagline': ['Critical public-sector infrastructure · 15+ years in IT · 5+ years in leadership · Regulation · Security · Digital services'],
         '.download-label': ['Download CV'],
-        '.write-label': ['Contact me'],
+        '.experience-label': ['View experience'],
         '.section__title': ['About', 'Core expertise', 'Work experience', 'Education', 'Technical stack', 'Languages', 'Professional approach'],
         '.about__content p': [
           'ICT leader and infrastructure engineer with 15+ years in Kazakhstan’s public sector. I led a database-support department for more than five years and was responsible for the national CBDAN and BDIK registries. I now operate the TIZILIM government platform 24/7 across five Debian servers, 10+ Docker containers, L2/L3 support, Nginx, PostgreSQL, Redis, Meilisearch and a full observability stack. I combine team leadership with hands-on engineering, Ansible automation, information security and AI-service development.',
