@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Симагамбетов Нартай — ИКТ-специалист | DevOps / DBA</title>
+  <meta name="description" content="Резюме Симагамбетова Нартия Мерамовича — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ">
+  <meta name="theme-color" content="#FAFBFC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F1117" media="(prefers-color-scheme: dark)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#about">Перейти к содержимому</a>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Основная навигация">
+    <div class="container navbar__inner">
+      <a href="#hero" class="navbar__logo">НС</a>
+      <button class="navbar__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Открыть меню">
+        <svg class="icon icon--menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon icon--close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="navbar__menu" id="navMenu">
+        <a href="#about" class="navbar__link">О себе</a>
+        <a href="#competencies" class="navbar__link">Компетенции</a>
+        <a href="#experience" class="navbar__link">Опыт</a>
+        <a href="#education" class="navbar__link">Образование</a>
+        <a href="#techstack" class="navbar__link">Стек</a>
+        <a href="#languages" class="navbar__link">Языки</a>
+        <a href="#contacts" class="navbar__link">Контакты</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+          <svg class="icon icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="hero">
+      <div class="container hero__content">
+        <div class="hero__photo fade-in">
+          <img src="assets/Nartay.jpg" alt="Симагамбетов Нартай Мерамович" width="160" height="160">
+        </div>
+        <p class="hero__location fade-in">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Астана, Казахстан
+        </p>
+        <h1 class="hero__name">Симагамбетов<br>Нартай Мерамович</h1>
+        <p class="hero__position">Специалист ИКТ-подразделения</p>
+        <p class="hero__tagline">15+ лет в ИТ &middot; 5+ лет руководства &middot; Госсектор РК &middot; НПА / ИБ / Цифровое правительство</p>
+        <div class="hero__contacts">
+          <a href="tel:+77029072555" class="hero__contact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +7 (702) 907-25-55
+          </a>
+          <a href="mailto:simagambetovn@gmail.com" class="hero__contact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            simagambetovn@gmail.com
+          </a>
+        </div>
+        <div class="hero__actions">
+          <a href="#" class="btn btn--primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Скачать CV
+          </a>
+          <a href="mailto:simagambetovn@gmail.com" class="btn btn--secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Написать
+          </a>
+        </div>
+        <a href="#about" class="hero__scroll" aria-label="Прокрутить вниз">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="about-heading">О себе</h2>
+        <div class="about__content fade-in">
+          <p>Руководитель ИКТ-подразделения с 15+ летним стажем исключительно в государственном секторе Казахстана. Более 5 лет возглавлял отдел сопровождения баз данных в РГП &laquo;Государственная радиочастотная служба&raquo; МЦРИАП РК — обеспечивал работу критически важных национальных реестров (ЦБДАН, БДИК, 100M+ абонентов), участвовал в разработке НПА и регламентов, взаимодействовал с Министерством по вопросам информационной безопасности. Участвовал в запуске государственной платформы TIZILIM; внедрил Ansible для автоматизации управления серверной инфраструктурой. Глубоко понимаю специфику работы с критической инфраструктурой электронного правительства. Обеспечиваю результат в условиях нулевого права на ошибку.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="competencies" aria-labelledby="comp-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="comp-heading">Ключевые компетенции</h2>
+        <div class="competencies__grid">
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="card__title">Руководство ИКТ</h3>
+            <p class="card__text">Управление командой, планирование, контроль KPI, отчётность</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 class="card__title">НПА и регламенты</h3>
+            <p class="card__text">Разработка нормативных актов в части ИС; взаимодействие с МЦРИАП РК</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="card__title">Информационная безопасность</h3>
+            <p class="card__text">Защита от НСД, управление доступом, аудит действий, Grafana Loki</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3 class="card__title">Проектная документация</h3>
+            <p class="card__text">ТЗ, архитектурные схемы, технические планы, спецификации требований</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h3 class="card__title">Инфраструктура / DevOps</h3>
+            <p class="card__text">Linux, Docker, Nginx, SSL/TLS, Ansible, Prometheus, Grafana, Alertmanager</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3 class="card__title">Базы данных</h3>
+            <p class="card__text">PostgreSQL 16, MS SQL, Lotus Domino, Redis — администрирование, оптимизация</p>
+          </div>
+          <div class="card fade-in">
+            <div class="card__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="card__title">AI / Цифровые сервисы</h3>
+            <p class="card__text">Python, OpenAI API, ChromaDB, Aiogram — разработка интеллектуальных сервисов</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="exp-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="exp-heading">Опыт работы</h2>
+        <div class="timeline" id="timeline">
+          <div class="timeline__line" id="timelineLine"></div>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot timeline__dot--active"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">06.2025 — настоящее время</span>
+              <h3 class="timeline__company">АО &laquo;Казахстанский центр индустрии и экспорта QazIndustry&raquo;</h3>
+              <p class="timeline__role">Главный эксперт Дирекции цифровой трансформации</p>
+              <ul class="timeline__list">
+                <li>Запуск платформы: ввод в эксплуатацию ГИС TIZILIM в срок (июнь 2025); uptime <span class="counter" data-target="99.9" data-decimals="1">0</span>% на 5 серверах Debian 12</li>
+                <li>Мониторинг и логи: Prometheus + Grafana + Grafana Loki + Alertmanager (14 правил, Telegram) — обнаружение инцидентов до 2 минут</li>
+                <li>Автоматизация (Ansible): централизованное управление 5 серверами (playbooks, roles, inventory)</li>
+                <li>Безопасность/SSL: Wildcard SSL (*.tizilim.gov.kz, до 2027) — шифрование 100% трафика</li>
+                <li>Файловый сервис: система хранения документов на Ubuntu 22.04 (files.tizilim.gov.kz) с полнотекстовым поиском по PDF/видео</li>
+                <li>PostgreSQL: оптимизация slow queries, настройка pg_hba.conf — снижение времени ответа БД на <span class="counter" data-target="40" data-decimals="0">0</span>%</li>
+                <li>CI/CD: деплой релизов (последний — release_3.6.23, февраль 2026); тестовая среда dev.qazindustry.gov.kz</li>
+                <li>AI-сервис: Telegram-бот iDos для Министерства промышленности РК (Python, Aiogram, MongoDB, ChromaDB, OpenAI, GLPI)</li>
+                <li>Команда: координация 3 инженеров, архитектурная документация инфраструктуры</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">11.2019 — 05.2025 (5 лет 7 месяцев)</span>
+              <h3 class="timeline__company">РГП &laquo;Государственная радиочастотная служба&raquo; МЦРИАП РК</h3>
+              <p class="timeline__role">Начальник отдела по сопровождению базы данных</p>
+              <ul class="timeline__list">
+                <li>Руководство отделом <span class="counter" data-target="5.5" data-decimals="1">0</span> лет: планирование, контроль, отчётность — выполнение плана 100%</li>
+                <li>Критическая инфраструктура: ЦБДАН (<span class="counter" data-target="100" data-decimals="0" data-suffix="M+">0</span> абонентских номеров) и БДИК (реестр IMEI РК) — 0 потерь данных за 5 лет</li>
+                <li>НПА и регламенты: участие в разработке НПА и внутренних регламентов, проверки серверных помещений</li>
+                <li>Информационная безопасность: защита от НСД, целостность и актуальность данных в реестрах</li>
+                <li>Хранилище данных: построение DWH с нуля (ETL, управленческая отчётность) — сокращение ручного труда аналитиков на <span class="counter" data-target="70" data-decimals="0">0</span>%</li>
+                <li>Аналитика для регулятора: статистика по ЦБДАН/БДИК для регуляторных решений МЦРИАП РК</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">06.2018 — 11.2019 (1 год 6 месяцев)</span>
+              <h3 class="timeline__company">АО &laquo;Энергоинформ&raquo;</h3>
+              <p class="timeline__role">Главный специалист — DBA / System Administrator</p>
+              <ul class="timeline__list">
+                <li>Администрирование Lotus Domino v9.0, Windows Server 2008 R2; резервное копирование с контрольным восстановлением</li>
+                <li>ARIS/SAP: схемы бизнес-процессов в ARIS for SAP Solutions; обучение рабочей группы</li>
+                <li>IAM: управление доступом, мониторинг лицензий, устранение инцидентов</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">06.2014 — 06.2018 (4 года 1 месяц)</span>
+              <h3 class="timeline__company">АО &laquo;Национальные информационные технологии&raquo;</h3>
+              <p class="timeline__role">Главный специалист — Lotus Domino DBA</p>
+              <ul class="timeline__list">
+                <li>Сервис БД Lotus Domino для 5+ государственных органов: администрирование, репликация, восстановление, обучение</li>
+                <li>Автоматизация регуляторной отчётности — сокращение времени подготовки на 50%</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">09.2011 — 03.2014 (2 года 7 месяцев)</span>
+              <h3 class="timeline__company">ТОО &laquo;Бизнес Софт&raquo;</h3>
+              <p class="timeline__role">Бизнес-аналитик / Специалист по внедрению</p>
+              <ul class="timeline__list">
+                <li>Внедрение МИС &laquo;ГИС&raquo; в 3 учреждения Национального медицинского холдинга РК</li>
+                <li>Документация: спецификации требований, тест-планы, руководства пользователя</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline__item fade-in">
+            <div class="timeline__dot"></div>
+            <div class="timeline__content">
+              <span class="timeline__date">11.2010 — 09.2011 (11 месяцев)</span>
+              <h3 class="timeline__company">IT Research Center</h3>
+              <p class="timeline__role">Специалист по внедрению и сопровождению</p>
+              <ul class="timeline__list">
+                <li>Разработка на C++ и развёртывание ИС мониторинга монополистов для Агентства РК по регулированию естественных монополий</li>
+                <li>Тест-планы, загрузка данных, пользовательская документация</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="education" aria-labelledby="edu-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="edu-heading">Образование</h2>
+        <div class="education__list">
+          <div class="education__item fade-in">
+            <div class="education__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3 class="education__title">Esil University, Астана</h3>
+              <p class="education__detail">Бакалавр, Информационные системы / ИКТ</p>
+              <span class="education__year">2022</span>
+            </div>
+          </div>
+          <div class="education__item fade-in">
+            <div class="education__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3 class="education__title">Акмолинский финансово-экономический колледж</h3>
+              <p class="education__detail">Техник-программист, ПО ВТ</p>
+              <span class="education__year">2010</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="techstack" aria-labelledby="tech-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="tech-heading">Технический стек</h2>
+        <div class="techstack">
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">СУБД</h3>
+            <div class="techstack__tags">
+              <span class="tag">PostgreSQL 16.6</span>
+              <span class="tag">Redis 7.4</span>
+              <span class="tag">Lotus Domino v9.0</span>
+              <span class="tag">Meilisearch v1.8</span>
+              <span class="tag">MS SQL</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">Мониторинг / Логи</h3>
+            <div class="techstack__tags">
+              <span class="tag">Prometheus</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Grafana Loki</span>
+              <span class="tag">Alertmanager</span>
+              <span class="tag">Zabbix</span>
+              <span class="tag">node_exporter</span>
+              <span class="tag">postgres_exporter</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">Автоматизация</h3>
+            <div class="techstack__tags">
+              <span class="tag">Ansible</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Docker Compose</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">Инфраструктура</h3>
+            <div class="techstack__tags">
+              <span class="tag">Nginx</span>
+              <span class="tag">SSL/TLS</span>
+              <span class="tag">LVM</span>
+              <span class="tag">Debian 12</span>
+              <span class="tag">Ubuntu 22.04</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">Языки / Скрипты</h3>
+            <div class="techstack__tags">
+              <span class="tag">SQL</span>
+              <span class="tag">Bash</span>
+              <span class="tag">Python</span>
+              <span class="tag">PHP (Laravel artisan)</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">AI / Интеграции</h3>
+            <div class="techstack__tags">
+              <span class="tag">OpenAI API</span>
+              <span class="tag">ChromaDB</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Aiogram</span>
+              <span class="tag">Notion API</span>
+              <span class="tag">GLPI</span>
+            </div>
+          </div>
+          <div class="techstack__group fade-in">
+            <h3 class="techstack__category">Инструменты</h3>
+            <div class="techstack__tags">
+              <span class="tag">DBeaver</span>
+              <span class="tag">pgAdmin</span>
+              <span class="tag">Power Query</span>
+              <span class="tag">Git</span>
+              <span class="tag">ARIS for SAP Solutions</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="languages" aria-labelledby="lang-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="lang-heading">Языки</h2>
+        <div class="languages">
+          <div class="language fade-in">
+            <div class="language__info">
+              <span class="language__name">Казахский</span>
+              <span class="language__level">Родной (C2)</span>
+            </div>
+            <div class="language__bar"><div class="language__fill" data-width="100"></div></div>
+          </div>
+          <div class="language fade-in">
+            <div class="language__info">
+              <span class="language__name">Русский</span>
+              <span class="language__level">Свободно (C2)</span>
+            </div>
+            <div class="language__bar"><div class="language__fill" data-width="100"></div></div>
+          </div>
+          <div class="language fade-in">
+            <div class="language__info">
+              <span class="language__name">Английский</span>
+              <span class="language__level">Средне-продвинутый (B2)</span>
+            </div>
+            <div class="language__bar"><div class="language__fill" data-width="70"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="personal" aria-labelledby="personal-heading">
+      <div class="container">
+        <h2 class="section__title fade-in" id="personal-heading">О себе</h2>
+        <div class="about__content fade-in">
+          <p>Весь профессиональный путь — исключительно в государственном секторе РК: понимаю специфику работы с критической инфраструктурой, требования регуляторов и ответственность за данные граждан. Развиваюсь в направлении DevOps-автоматизации: внедрил Ansible в production, изучаю Kubernetes и GitOps-практики. Имею практический опыт разработки AI-инструментов на базе LLM (Telegram-бот, ChromaDB, OpenAI API). Убеждён, что современный руководитель ИКТ-подразделения должен понимать не только хранение и репликацию данных, но и то, как автоматизация и интеллектуальные системы делают инфраструктуру управляемой, безопасной и масштабируемой.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="container footer__inner">
+      <h2 class="footer__title">Контакты</h2>
+      <div class="footer__contacts">
+        <a href="tel:+77029072555" class="footer__link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 (702) 907-25-55
+        </a>
+        <a href="mailto:simagambetovn@gmail.com" class="footer__link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          simagambetovn@gmail.com
+        </a>
+        <span class="footer__link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Астана, Казахстан
+        </span>
+      </div>
+      <p class="footer__copy">&copy; 2025 Симагамбетов Нартай</p>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+.mimocode/
+_db_query*.py
+_distill_query*.py
+__pycache__/
+*.pyc
