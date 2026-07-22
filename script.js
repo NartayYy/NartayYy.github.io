@@ -271,15 +271,30 @@
     { threshold: 0.5 }
   );
 
-  document.querySelectorAll('.counter').forEach(function (el) {
-    counterObserver.observe(el);
-  });
+  function observeCounters() {
+    document.querySelectorAll('.counter').forEach(function (el) {
+      const target = parseFloat(el.getAttribute('data-target'));
+      const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+
+      if (prefersReducedMotion) {
+        el.textContent = target.toFixed(decimals) + suffix;
+        return;
+      }
+
+      el.textContent = decimals > 0 ? (0).toFixed(decimals) : '0';
+      counterObserver.observe(el);
+    });
+  }
+
+  observeCounters();
 
   window.addEventListener('site-language-change', function () {
     updateThemeLabel(html.getAttribute('data-theme') || 'dark');
     navToggle.setAttribute('aria-label', navMenu.classList.contains('open') ? currentLabels().close : currentLabels().open);
     if (languageToggle) languageToggle.setAttribute('aria-label', currentLabels().languages);
     if (languageMenu) languageMenu.setAttribute('aria-label', currentLabels().languages);
+    observeCounters();
   });
 
   // ========================================
