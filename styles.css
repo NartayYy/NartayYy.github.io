@@ -1071,6 +1071,18 @@ ul { list-style: none; }
     overflow-x: hidden;
   }
 
+  body {
+    padding-top: 77px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+  }
+
   .navbar__toggle {
     display: flex;
     position: relative;
