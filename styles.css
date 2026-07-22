@@ -56,6 +56,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 
 body {
@@ -358,6 +359,14 @@ ul { list-style: none; }
 
 .hero__contact:hover::after { width: 100%; }
 .hero__contact:hover { color: var(--accent); }
+
+.telegram-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
 
 .hero__actions {
   display: flex;
@@ -955,6 +964,10 @@ ul { list-style: none; }
 
 /* Mobile */
 @media (max-width: 639px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
   .navbar__toggle {
     display: flex;
   }
@@ -962,7 +975,7 @@ ul { list-style: none; }
   .navbar__menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -300px;
     width: 280px;
     height: 100vh;
     background: var(--bg-secondary);
@@ -972,7 +985,8 @@ ul { list-style: none; }
     gap: 0.25rem;
     box-shadow: var(--shadow-lg);
     transition: right 0.3s ease;
-    z-index: 99;
+    z-index: 200;
+    overflow-y: auto;
   }
 
   .navbar__menu.open {
@@ -1070,19 +1084,45 @@ ul { list-style: none; }
   .scroll-top,
   .theme-toggle,
   .hero__scroll,
-  .hero__actions {
+  .hero__actions,
+  .hero__photo {
     display: none !important;
   }
 
   body {
     color: #000;
     background: #fff;
+    font-size: 11pt;
   }
 
-  .section { padding: 1rem 0; }
+  a { color: #000; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+  a[href^="mailto"]::after { content: " (" attr(href) ")"; }
+  a[href^="tel"]::after { content: " (" attr(href) ")"; }
+  a[href^="https://t.me"]::after { content: " (" attr(href) ")"; }
+
+  .section { padding: 1.5rem 0; page-break-inside: avoid; }
+  .timeline__item { page-break-inside: avoid; }
   .fade-in { opacity: 1 !important; transform: none !important; }
 
   .timeline__line { transform: scaleY(1) !important; }
+
+  .hero {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .hero__name { font-size: 24pt; }
+  .hero__position { color: #333; }
+
+  .card, .timeline__content, .education__item {
+    border: 1px solid #ccc;
+    box-shadow: none;
+  }
+
+  .tag { border: 1px solid #ccc; background: #f5f5f5; }
+
+  .footer { border-top: 1px solid #ccc; }
 }
 
 /* ========================================
