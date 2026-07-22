@@ -13,14 +13,14 @@
   const copy = {
     kk: {
       title: 'Симагомбетов Нартай — АКТ басшысы | DevOps / DBA',
-      description: 'Симагомбетов Нартай Мерамовичтің түйіндемесі — АКТ басшысы, ҚР мемлекеттік секторында 15+ жыл, DevOps, DBA және ақпараттық қауіпсіздік.',
-      aria: { nav: 'Негізгі навигация', scroll: 'Төмен айналдыру', top: 'Жоғары', photo: 'Симагомбетов Нартай Мерамович' },
+      description: 'Симагомбетов Нартайдың түйіндемесі — АКТ басшысы, ҚР мемлекеттік секторында 15+ жыл, DevOps, DBA және ақпараттық қауіпсіздік.',
+      aria: { nav: 'Негізгі навигация', scroll: 'Төмен айналдыру', top: 'Жоғары', photo: 'Симагомбетов Нартай' },
       values: {
         '.skip-link': ['Мазмұнға өту'],
         '.navbar__link': ['Өзім туралы', 'Құзыреттер', 'Тәжірибе', 'Білім', 'Стек', 'Тілдер', 'Байланыс'],
         '.location-text': ['Астана, Қазақстан', 'Астана, Қазақстан'],
         '.hero__eyebrow': ['Басқару · Инфрақұрылым · Деректер'],
-        '.hero__name': ['Симагомбетов<br>Нартай Мерамович'],
+        '.hero__name': ['Симагомбетов<br>Нартай'],
         '.hero__position': ['АКТ басшысы · DevOps / DBA'],
         '.hero__tagline': ['ҚР мемлекеттік секторының сындарлы инфрақұрылымы · IT саласында 15+ жыл · басқаруда 5+ жыл · НҚА · АБ · цифрлық сервистер'],
         '.download-label': ['CV жүктеу'],
@@ -62,14 +62,14 @@
     },
     en: {
       title: 'Simagombetov Nartay — ICT Leader | DevOps / DBA',
-      description: 'Resume of Simagombetov Nartay Meramovich — ICT leader with 15+ years in Kazakhstan’s public sector, DevOps, DBA and information security.',
-      aria: { nav: 'Primary navigation', scroll: 'Scroll down', top: 'Back to top', photo: 'Simagombetov Nartay Meramovich' },
+      description: 'Resume of Simagombetov Nartay — ICT leader with 15+ years in Kazakhstan’s public sector, DevOps, DBA and information security.',
+      aria: { nav: 'Primary navigation', scroll: 'Scroll down', top: 'Back to top', photo: 'Simagombetov Nartay' },
       values: {
         '.skip-link': ['Skip to content'],
         '.navbar__link': ['About', 'Expertise', 'Experience', 'Education', 'Stack', 'Languages', 'Contacts'],
         '.location-text': ['Astana, Kazakhstan', 'Astana, Kazakhstan'],
         '.hero__eyebrow': ['Leadership · Infrastructure · Data'],
-        '.hero__name': ['Simagombetov<br>Nartay Meramovich'],
+        '.hero__name': ['Simagombetov<br>Nartay'],
         '.hero__position': ['ICT Leader · DevOps / DBA'],
         '.hero__tagline': ['Critical public-sector infrastructure · 15+ years in IT · 5+ years in leadership · Regulation · Security · Digital services'],
         '.download-label': ['Download CV'],
@@ -147,18 +147,23 @@
     renderedLanguage = lang;
     document.documentElement.lang = lang;
     document.title = selected ? selected.title : 'Симагомбетов Нартай — Руководитель ИКТ | DevOps / DBA';
-    const description = selected ? selected.description : 'Резюме Симагомбетова Нартая Мерамовича — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ';
+    const description = selected ? selected.description : 'Резюме Симагомбетова Нартая — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ';
     document.querySelector('meta[name="description"]').content = description;
     document.querySelector('meta[property="og:title"]').content = document.title;
     document.querySelector('meta[property="og:description"]').content = description;
-    const defaultAria = { nav: 'Основная навигация', scroll: 'Прокрутить вниз', top: 'Наверх', photo: 'Симагомбетов Нартай Мерамович' };
+    const defaultAria = { nav: 'Основная навигация', scroll: 'Прокрутить вниз', top: 'Наверх', photo: 'Симагомбетов Нартай' };
     const aria = selected ? selected.aria : defaultAria;
     document.querySelector('#navbar').setAttribute('aria-label', aria.nav);
     document.querySelector('.hero__scroll').setAttribute('aria-label', aria.scroll);
     document.querySelector('#scrollTop').setAttribute('aria-label', aria.top);
     document.querySelector('.hero__photo img').setAttribute('alt', aria.photo);
-    const languageSelect = document.getElementById('languageSelect');
-    if (languageSelect) languageSelect.value = lang;
+    const currentLanguage = document.getElementById('currentLanguage');
+    if (currentLanguage) currentLanguage.textContent = lang === 'kk' ? 'KZ' : lang.toUpperCase();
+    document.querySelectorAll('.language-switcher__option').forEach(function (option) {
+      const active = option.dataset.lang === lang;
+      option.classList.toggle('active', active);
+      option.setAttribute('aria-selected', String(active));
+    });
     localStorage.setItem('language', lang);
     if (contentChanged) finalizeCounters();
     window.dispatchEvent(new CustomEvent('site-language-change', { detail: { language: lang } }));
@@ -166,10 +171,9 @@
 
   function init() {
     collectOriginals();
-    const languageSelect = document.getElementById('languageSelect');
-    if (languageSelect) {
-      languageSelect.addEventListener('change', function () { applyLanguage(languageSelect.value); });
-    }
+    document.querySelectorAll('.language-switcher__option').forEach(function (option) {
+      option.addEventListener('click', function () { applyLanguage(option.dataset.lang); });
+    });
     applyLanguage(localStorage.getItem('language') || 'ru');
   }
 

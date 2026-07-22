@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Симагомбетов Нартай — Руководитель ИКТ | DevOps / DBA</title>
-  <meta name="description" content="Резюме Симагомбетова Нартая Мерамовича — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ">
+  <meta name="description" content="Резюме Симагомбетова Нартая — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ">
   <meta name="theme-color" content="#FAFBFC" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0F1117" media="(prefers-color-scheme: dark)">
 
@@ -14,11 +14,11 @@
   <meta property="og:title" content="Симагомбетов Нартай — Руководитель ИКТ | DevOps / DBA">
   <meta property="og:description" content="15+ лет в ИТ, 5+ лет руководства, госсектор РК. DevOps, DBA, ИБ.">
   <meta property="og:image" content="https://nartayyy.github.io/assets/Nartay.jpg">
-  <meta property="og:image:alt" content="Симагомбетов Нартай Мерамович">
+  <meta property="og:image:alt" content="Симагомбетов Нартай">
   <meta property="og:url" content="https://nartayyy.github.io/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image:alt" content="Симагомбетов Нартай Мерамович">
+  <meta name="twitter:image:alt" content="Симагомбетов Нартай">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,13 +57,17 @@
         <a href="#techstack" class="navbar__link">Стек</a>
         <a href="#languages" class="navbar__link">Языки</a>
         <a href="#contacts" class="navbar__link">Контакты</a>
-        <div class="language-switcher">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
-          <select class="language-switcher__select" id="languageSelect" aria-label="Выбор языка">
-            <option value="ru">RU</option>
-            <option value="kk">KZ</option>
-            <option value="en">EN</option>
-          </select>
+        <div class="language-switcher" id="languageSwitcher">
+          <button class="language-switcher__toggle" id="languageToggle" type="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="languageMenu" aria-label="Выбор языка">
+            <svg class="language-switcher__globe" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+            <span id="currentLanguage">RU</span>
+            <svg class="language-switcher__chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="language-switcher__menu" id="languageMenu" role="listbox" aria-label="Выбор языка" hidden>
+            <button class="language-switcher__option active" type="button" role="option" data-lang="ru" aria-selected="true">RU</button>
+            <button class="language-switcher__option" type="button" role="option" data-lang="kk" aria-selected="false">KZ</button>
+            <button class="language-switcher__option" type="button" role="option" data-lang="en" aria-selected="false">EN</button>
+          </div>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
           <svg class="icon icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -77,14 +81,14 @@
     <header class="hero" id="hero">
       <div class="container hero__content">
         <div class="hero__photo fade-in">
-          <img src="assets/Nartay.jpg" alt="Симагомбетов Нартай Мерамович" width="160" height="160" fetchpriority="high">
+          <img src="assets/Nartay.jpg" alt="Симагомбетов Нартай" width="160" height="160" fetchpriority="high">
         </div>
         <p class="hero__location fade-in">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span class="location-text">Астана, Казахстан</span>
         </p>
         <p class="hero__eyebrow">Управление · Инфраструктура · Данные</p>
-        <h1 class="hero__name">Симагомбетов<br>Нартай Мерамович</h1>
+        <h1 class="hero__name">Симагомбетов<br>Нартай</h1>
         <p class="hero__position">Руководитель ИКТ · DevOps / DBA</p>
         <p class="hero__tagline">Критическая инфраструктура госсектора РК · 15+ лет в ИТ · 5+ лет управления · НПА · ИБ · цифровые сервисы</p>
         <div class="hero__contacts">

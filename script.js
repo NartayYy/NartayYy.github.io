@@ -68,10 +68,46 @@
     link.addEventListener('click', closeMenu);
   });
 
-  const languageSelect = document.getElementById('languageSelect');
-  if (languageSelect) languageSelect.addEventListener('change', closeMenu);
+  const languageSwitcher = document.getElementById('languageSwitcher');
+  const languageToggle = document.getElementById('languageToggle');
+  const languageMenu = document.getElementById('languageMenu');
+  const languageOptions = languageMenu ? languageMenu.querySelectorAll('.language-switcher__option') : [];
+
+  function closeLanguageMenu() {
+    if (!languageMenu || !languageToggle) return;
+    languageMenu.hidden = true;
+    languageToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function openLanguageMenu() {
+    if (!languageMenu || !languageToggle) return;
+    languageMenu.hidden = false;
+    languageToggle.setAttribute('aria-expanded', 'true');
+  }
+
+  if (languageToggle) {
+    languageToggle.addEventListener('click', function () {
+      languageMenu.hidden ? openLanguageMenu() : closeLanguageMenu();
+    });
+  }
+
+  languageOptions.forEach(function (option) {
+    option.addEventListener('click', function () {
+      closeLanguageMenu();
+      closeMenu();
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (languageSwitcher && !languageSwitcher.contains(e.target)) closeLanguageMenu();
+  });
 
   document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && languageMenu && !languageMenu.hidden) {
+      closeLanguageMenu();
+      languageToggle.focus();
+      return;
+    }
     if (e.key === 'Escape' && navMenu.classList.contains('open')) {
       closeMenu();
       navToggle.focus();
@@ -242,7 +278,8 @@
   window.addEventListener('site-language-change', function () {
     updateThemeLabel(html.getAttribute('data-theme') || 'dark');
     navToggle.setAttribute('aria-label', navMenu.classList.contains('open') ? currentLabels().close : currentLabels().open);
-    if (languageSelect) languageSelect.setAttribute('aria-label', currentLabels().languages);
+    if (languageToggle) languageToggle.setAttribute('aria-label', currentLabels().languages);
+    if (languageMenu) languageMenu.setAttribute('aria-label', currentLabels().languages);
   });
 
   // ========================================
