@@ -1353,3 +1353,65 @@ main > .section + .section {
   .hero__scroll { animation: none; }
 
 }
+
+/* Header controls stay visible beside the menu button on compact screens. */
+.navbar__menu {
+  margin-left: auto;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.contact-icon--whatsapp {
+  color: #25d366;
+}
+
+@media (max-width: 900px) {
+  .navbar__actions {
+    margin-left: auto;
+    position: relative;
+    z-index: 201;
+  }
+
+  .navbar__actions .theme-toggle,
+  .navbar__actions .language-switcher {
+    margin: 0;
+  }
+
+  .navbar__toggle[aria-expanded="true"] {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__inner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .navbar__actions {
+    gap: 0.15rem;
+  }
+
+  .language-switcher__toggle {
+    min-width: 58px;
+    min-height: 44px;
+    padding: 0 0.4rem;
+  }
+
+  .language-switcher__globe,
+  .language-switcher__chevron {
+    display: none;
+  }
+
+  .theme-toggle,
+  .navbar__toggle {
+    min-width: 42px;
+    width: 42px;
+  }
+}
