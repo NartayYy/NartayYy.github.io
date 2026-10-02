@@ -1,0 +1,629 @@
+{
+  "contacts": {
+    "phone": "+77029072555",
+    "phoneLabel": "+7 (702) 907-25-55",
+    "email": "simagambetovn@gmail.com",
+    "telegram": "https://t.me/NartayYy",
+    "whatsapp": "https://wa.me/77029072555"
+  },
+  "cv": {
+    "file": "assets/cv.pdf",
+    "downloadName": "Симагамбетов_Нартай_CV.pdf"
+  },
+  "photo": "assets/Nartay.jpg",
+  "educationYears": [
+    "2022",
+    "2010"
+  ],
+  "stack": [
+    [
+      "PostgreSQL 16.6",
+      "Redis 7.4",
+      "Lotus Domino v9.0",
+      "Meilisearch v1.8",
+      "MS SQL"
+    ],
+    [
+      "Prometheus",
+      "Grafana",
+      "Grafana Loki",
+      "Alertmanager",
+      "Zabbix",
+      "node_exporter",
+      "postgres_exporter"
+    ],
+    [
+      "Ansible",
+      "Docker",
+      "Docker Compose"
+    ],
+    [
+      "Nginx",
+      "SSL/TLS",
+      "LVM",
+      "Debian 12",
+      "Ubuntu 22.04"
+    ],
+    [
+      "SQL",
+      "Bash",
+      "Python",
+      "PHP (Laravel artisan)"
+    ],
+    [
+      "OpenAI API",
+      "ChromaDB",
+      "MongoDB",
+      "Aiogram",
+      "Notion API",
+      "GLPI"
+    ],
+    [
+      "DBeaver",
+      "pgAdmin",
+      "Power Query",
+      "Git",
+      "ARIS for SAP Solutions"
+    ]
+  ],
+  "languages": {
+    "ru": {
+      "title": "Симагомбетов Нартай — Руководитель ИКТ | DevOps / DBA",
+      "description": "Резюме Симагомбетова Нартая — руководитель ИКТ-подразделения, 15+ лет в госсекторе РК, DevOps, DBA, ИБ",
+      "aria": {
+        "nav": "Основная навигация",
+        "scroll": "Прокрутить вниз",
+        "top": "Наверх",
+        "photo": "Симагомбетов Нартай"
+      },
+      "sections": {
+        "skipLink": [
+          "Перейти к содержимому"
+        ],
+        "navigation": [
+          "О себе",
+          "Компетенции",
+          "Опыт",
+          "Образование",
+          "Стек",
+          "Языки",
+          "Контакты"
+        ],
+        "location": [
+          "Астана, Казахстан",
+          "Астана, Казахстан"
+        ],
+        "eyebrow": [
+          "Управление · Инфраструктура · Данные"
+        ],
+        "name": [
+          "Симагомбетов<br>Нартай"
+        ],
+        "position": [
+          "Руководитель ИКТ · DevOps / DBA"
+        ],
+        "tagline": [
+          "Критическая инфраструктура госсектора РК · 15+ лет в ИТ · 5+ лет управления · НПА · ИБ · цифровые сервисы"
+        ],
+        "downloadLabel": [
+          "Скачать CV"
+        ],
+        "experienceLabel": [
+          "Смотреть опыт"
+        ],
+        "sectionTitles": [
+          "О себе",
+          "Ключевые компетенции",
+          "Опыт работы",
+          "Образование",
+          "Технический стек",
+          "Языки",
+          "Профессиональный подход"
+        ],
+        "about": [
+          "Руководитель ИКТ и инженер инфраструктуры с 15+ годами опыта в государственном секторе Казахстана. Более 5 лет руководил отделом сопровождения баз данных и отвечал за национальные реестры ЦБДАН и БДИК. Сейчас обеспечиваю эксплуатацию государственной платформы TIZILIM 24/7: 5 серверов Debian, 10+ Docker-контейнеров, L2/L3-поддержка, Nginx, PostgreSQL, Redis, Meilisearch и полный контур observability. Совмещаю управление командой с hands-on работой, автоматизацией Ansible, информационной безопасностью и разработкой AI-сервисов.",
+          "Соединяю управленческий опыт с hands-on эксплуатацией: могу выстроить работу команды и отчётность, а затем самостоятельно диагностировать production-инцидент, оптимизировать запрос, настроить reverse proxy, мониторинг или Ansible playbook. Приоритеты — измеримая доступность, проверяемое восстановление, безопасность данных и документация, по которой инфраструктуру может сопровождать не один человек."
+        ],
+        "competencyTitles": [
+          "Руководство ИКТ",
+          "НПА и регламенты",
+          "Информационная безопасность",
+          "Проектная документация",
+          "Инфраструктура / DevOps",
+          "Базы данных",
+          "AI / Цифровые сервисы"
+        ],
+        "competencyDescriptions": [
+          "Управление командой, планирование, контроль KPI, отчётность",
+          "Разработка нормативных актов в части ИС; взаимодействие с МЦРИАП РК",
+          "Защита от НСД, SSL/TLS, сегментация сети, управление доступом и аудит действий",
+          "ТЗ, архитектурные схемы, технические планы, спецификации требований",
+          "Linux, Docker Compose, Nginx L7, Ansible, observability и L2/L3 production support",
+          "PostgreSQL 16, Redis, Meilisearch, MS SQL, Lotus Domino — эксплуатация и оптимизация",
+          "Python, Aiogram, MongoDB, ChromaDB, OpenAI API — интеллектуальные сервисы и интеграции"
+        ],
+        "experienceDates": [
+          "06.2025 — настоящее время",
+          "11.2019 — 05.2025 (5 лет 7 месяцев)",
+          "06.2018 — 11.2019 (1 год 6 месяцев)",
+          "06.2014 — 06.2018 (4 года 1 месяц)",
+          "09.2011 — 03.2014 (2 года 7 месяцев)",
+          "11.2010 — 09.2011 (11 месяцев)"
+        ],
+        "experienceCompanies": [
+          "АО &laquo;Казахстанский центр индустрии и экспорта QazIndustry&raquo;",
+          "РГП &laquo;Государственная радиочастотная служба&raquo; МЦРИАП РК",
+          "АО &laquo;Энергоинформ&raquo;",
+          "АО &laquo;Национальные информационные технологии&raquo;",
+          "ТОО &laquo;Бизнес Софт&raquo;",
+          "IT Research Center"
+        ],
+        "experienceRoles": [
+          "Заместитель руководителя Дирекции цифровизации и трансформации",
+          "Начальник отдела по сопровождению базы данных",
+          "Главный специалист — DBA / System Administrator",
+          "Главный специалист — Lotus Domino DBA",
+          "Бизнес-аналитик / Специалист по внедрению и тестированию",
+          "Специалист по внедрению и сопровождению"
+        ],
+        "experienceDetails": [
+          [
+            "Production 24/7: запуск и сопровождение ГИС TIZILIM с uptime <span class=\"counter\" data-target=\"99.9\" data-decimals=\"1\">0</span>% на 5 серверах Debian 12; L2/L3-диагностика критических инцидентов",
+            "Контейнерная платформа: 10+ Docker-контейнеров (Laravel, Vue.js/React, Go, Redis, Meilisearch, pgAdmin), Docker Compose, volumes и persistent storage",
+            "Контейнерная сеть: настройка Docker networks и MTU для стабильного взаимодействия микросервисов и подготовка инфраструктуры к горизонтальному масштабированию",
+            "Балансировка и маршрутизация: Nginx как L7 load balancer, reverse proxy и SSL termination для 6+ доменов; routing rules и upstream для Laravel, Vue.js/React и Go/WebSocket",
+            "Безопасность: Let's Encrypt с автоматическим продлением, firewall rules, network segmentation и контроль доступа к production-сервисам",
+            "Observability: Prometheus, Grafana, Loki, Alertmanager и Zabbix; 14 правил и Telegram-оповещения, обнаружение инцидентов до 2 минут; анализ и ротация Nginx, Laravel и cron-логов",
+            "Данные и поиск: PostgreSQL 16.6, pg_hba.conf, slow queries, Redis 7.4 и Meilisearch 1.8; снижение времени ответа БД на <span class=\"counter\" data-target=\"40\" data-decimals=\"0\">0</span>%",
+            "Автоматизация и релизы: Ansible (playbooks, roles, inventory), деплой release_3.6.23, клонирование и настройка dev.qazindustry.gov.kz",
+            "Цифровые сервисы: Wildcard SSL *.tizilim.gov.kz и files.tizilim.gov.kz на Ubuntu 22.04 — загрузка, хранение, индексация и полнотекстовый поиск документов",
+            "AI и команда: разработка iDos для Министерства промышленности РК (Python, Aiogram, MongoDB, ChromaDB, OpenAI, GLPI), координация 3 инженеров"
+          ],
+          [
+            "Руководство отделом <span class=\"counter\" data-target=\"5.5\" data-decimals=\"1\">0</span> лет: планирование, контроль, отчётность — выполнение плана 100%",
+            "Критическая инфраструктура: ЦБДАН (<span class=\"counter\" data-target=\"100\" data-decimals=\"0\" data-suffix=\"M+\">0</span> абонентских номеров) и БДИК (реестр IMEI РК) — 0 потерь данных за 5 лет",
+            "Эксплуатация: мониторинг, системное администрирование и сопровождение ЦБДАН, БДИК и задействованного серверного оборудования",
+            "Управленческая аналитика: постоянный сбор и анализ данных, автоматизация регулярной отчётности и определение ключевых статистических показателей реестров",
+            "Хранилище данных: построение DWH с нуля (ETL, управленческая отчётность) — сокращение ручного труда аналитиков на <span class=\"counter\" data-target=\"70\" data-decimals=\"0\">0</span>%",
+            "Аналитика и качество: тестирование отчётов и БД, сбор данных и статистика по ЦБДАН/БДИК для регуляторных решений МЦРИАП РК",
+            "Информационная безопасность: актуальность и целостность оперативных и накопленных данных, защита реестров от несанкционированного доступа",
+            "НПА и контроль: участие в разработке нормативных и локальных актов, планов и отчётности; обследование серверных и кроссовых помещений"
+          ],
+          [
+            "Администрирование Windows Server 2008 R2 и Lotus Domino v9.0, анализ и настройка производительности стандартных приложений Lotus",
+            "Резервное копирование и восстановление баз данных с регулярной проверкой резервных копий контрольным восстановлением",
+            "Мониторинг серверного оборудования, производительности систем и приложений; оперативное устранение неполадок и исполнение заявок",
+            "IAM и поддержка: предоставление, ограничение и отзыв доступа, отслеживание статусов пользователей, сопровождение клиентов и контроль лицензий",
+            "Подготовка технической документации и оперативное решение вопросов, возникающих при работе с внутренними и внешними клиентами",
+            "ARIS/SAP: разработка целевых схем бизнес-процессов в ARIS for SAP Solutions, консультирование и обучение рабочей группы"
+          ],
+          [
+            "Мониторинг задач серверов Lotus Domino, резервное копирование БД и настройка шаблонов регистрационных номеров, номенклатуры и организационной структуры",
+            "Анализ журналов действий пользователей, устранение блокировок и ошибок репликации, настройка счётчиков, системы и интерфейса",
+            "Эксплуатация БД на серверах 5+ государственных органов: восстановление ошибочно удалённых проектов, удаление дублей и консультации пользователей",
+            "Сопровождение ведомственных модулей и клиентских рабочих мест ИС, настройка маршрутизации обращений и шаблонов сопроводительных писем",
+            "Разработка специализированных отчётов по контрольным документам, ДСП, обращениям, НПА и поручениям государственных органов"
+          ],
+          [
+            "Обучение сотрудников АО &laquo;Национальный медицинский холдинг&raquo; работе с медицинской информационной системой &laquo;ГИС&raquo;",
+            "Почти 3 года полного цикла бизнес-анализа: изучение процессов заказчика, формализация требований и перевод пользовательских задач в понятные разработчикам спецификации",
+            "Функциональное тестирование: поиск ошибок и сбоев, моделирование штатных и нештатных сценариев для последующей доработки системы",
+            "Разработка спецификаций требований, сценариев и планов тестирования, руководств пользователя и внедренческой документации",
+            "Внедрение МИС в 5 медицинских учреждениях, включая Республиканский научный центр нейрохирургии, Реабилитационный диагностический центр и Научный центр материнства и детства"
+          ],
+          [
+            "Объектно-ориентированное проектирование, разработка на C++ и сопровождение внедрения системы выставления счетов заказчикам",
+            "Подготовка рабочих мест, проверка ПО, консультирование пользователей, загрузка справочных данных на контент-серверы и создание справочной документации",
+            "Успешное развёртывание по всей республике и ввод в опытную эксплуатацию ИС мониторинга деятельности естественных монополий",
+            "Функциональное тестирование: моделирование ошибок, подготовка тест-планов, тестовых данных и пользовательской документации"
+          ]
+        ],
+        "educationTitles": [
+          "Esil University, Астана",
+          "Акмолинский финансово-экономический колледж"
+        ],
+        "educationDetails": [
+          "Бакалавр, Информационные системы / ИКТ",
+          "Техник-программист, ПО ВТ"
+        ],
+        "stackCategories": [
+          "СУБД",
+          "Мониторинг / Логи",
+          "Автоматизация",
+          "Инфраструктура",
+          "Языки / Скрипты",
+          "AI / Интеграции",
+          "Инструменты"
+        ],
+        "languageNames": [
+          "Казахский",
+          "Русский",
+          "Английский"
+        ],
+        "languageLevels": [
+          "Родной (C2)",
+          "Свободно (C2)",
+          "Средне-продвинутый (B2)"
+        ],
+        "contactTitle": [
+          "Контакты"
+        ],
+        "copyright": [
+          "&copy; <span id=\"currentYear\">2026</span> Симагомбетов Нартай"
+        ]
+      }
+    },
+    "kk": {
+      "title": "Симагомбетов Нартай — АКТ басшысы | DevOps / DBA",
+      "description": "Симагомбетов Нартайдың түйіндемесі — АКТ басшысы, ҚР мемлекеттік секторында 15+ жыл, DevOps, DBA және ақпараттық қауіпсіздік.",
+      "aria": {
+        "nav": "Негізгі навигация",
+        "scroll": "Төмен айналдыру",
+        "top": "Жоғары",
+        "photo": "Симагомбетов Нартай"
+      },
+      "sections": {
+        "skipLink": [
+          "Мазмұнға өту"
+        ],
+        "navigation": [
+          "Өзім туралы",
+          "Құзыреттер",
+          "Тәжірибе",
+          "Білім",
+          "Стек",
+          "Тілдер",
+          "Байланыс"
+        ],
+        "location": [
+          "Астана, Қазақстан",
+          "Астана, Қазақстан"
+        ],
+        "eyebrow": [
+          "Басқару · Инфрақұрылым · Деректер"
+        ],
+        "name": [
+          "Симагомбетов<br>Нартай"
+        ],
+        "position": [
+          "АКТ басшысы · DevOps / DBA"
+        ],
+        "tagline": [
+          "ҚР мемлекеттік секторының сындарлы инфрақұрылымы · IT саласында 15+ жыл · басқаруда 5+ жыл · НҚА · АБ · цифрлық сервистер"
+        ],
+        "downloadLabel": [
+          "CV жүктеу"
+        ],
+        "experienceLabel": [
+          "Тәжірибені көру"
+        ],
+        "sectionTitles": [
+          "Өзім туралы",
+          "Негізгі құзыреттер",
+          "Жұмыс тәжірибесі",
+          "Білім",
+          "Техникалық стек",
+          "Тілдер",
+          "Кәсіби ұстаным"
+        ],
+        "about": [
+          "Қазақстанның мемлекеттік секторында 15 жылдан астам тәжірибесі бар АКТ басшысы және инфрақұрылым инженері. 5 жылдан астам дерекқорларды сүйемелдеу бөлімін басқарып, ЦБДАН және БДИК ұлттық тізілімдеріне жауап бердім. Қазір TIZILIM мемлекеттік платформасының тәулік бойы жұмысын қамтамасыз етемін: Debian жүйесіндегі 5 сервер, 10+ Docker контейнері, L2/L3 қолдау, Nginx, PostgreSQL, Redis, Meilisearch және толық observability контуры. Команданы басқаруды hands-on жұмысымен, Ansible автоматтандыруымен, ақпараттық қауіпсіздікпен және AI-сервистер әзірлеумен ұштастырамын.",
+          "Басқарушылық тәжірибені hands-on пайдаланумен ұштастырамын: команданың жұмысын және есептілікті жолға қойып, production инцидентін дербес диагностикалай аламын, сұрауды оңтайландырамын, reverse proxy, мониторинг немесе Ansible playbook баптаймын. Басымдықтарым — өлшенетін қолжетімділік, тексерілген қалпына келтіру, деректер қауіпсіздігі және инфрақұрылымды бір адамға тәуелді етпейтін құжаттама."
+        ],
+        "competencyTitles": [
+          "АКТ басшылығы",
+          "НҚА және регламенттер",
+          "Ақпараттық қауіпсіздік",
+          "Жобалық құжаттама",
+          "Инфрақұрылым / DevOps",
+          "Дерекқорлар",
+          "AI / Цифрлық сервистер"
+        ],
+        "competencyDescriptions": [
+          "Команданы басқару, жоспарлау, KPI бақылау және есептілік",
+          "Ақпараттық жүйелер бойынша нормативтік актілерді әзірлеу; ҚР ЦДИАӨМ-мен өзара іс-қимыл",
+          "Рұқсатсыз қол жеткізуден қорғау, SSL/TLS, желіні сегменттеу, қолжетімділікті басқару және аудит",
+          "Техникалық тапсырмалар, архитектуралық сызбалар, жоспарлар және талаптар спецификациялары",
+          "Linux, Docker Compose, Nginx L7, Ansible, observability және L2/L3 production support",
+          "PostgreSQL 16, Redis, Meilisearch, MS SQL, Lotus Domino — пайдалану және оңтайландыру",
+          "Python, Aiogram, MongoDB, ChromaDB, OpenAI API — интеллектуалды сервистер мен интеграциялар"
+        ],
+        "experienceDates": [
+          "06.2025 — қазіргі уақыт",
+          "11.2019 — 05.2025 (5 жыл 7 ай)",
+          "06.2018 — 11.2019 (1 жыл 6 ай)",
+          "06.2014 — 06.2018 (4 жыл 1 ай)",
+          "09.2011 — 03.2014 (2 жыл 7 ай)",
+          "11.2010 — 09.2011 (11 ай)"
+        ],
+        "experienceCompanies": [
+          "«Қазақстандық индустрия және экспорт орталығы QazIndustry» АҚ",
+          "ҚР ЦДИАӨМ «Мемлекеттік радиожиілік қызметі» РМК",
+          "«Энергоинформ» АҚ",
+          "«Ұлттық ақпараттық технологиялар» АҚ",
+          "«Бизнес Софт» ЖШС",
+          "IT Research Center"
+        ],
+        "experienceRoles": [
+          "Цифрландыру және трансформация дирекциясының басшысының орынбасары",
+          "Дерекқорларды сүйемелдеу бөлімінің бастығы",
+          "Бас маман — DBA / System Administrator",
+          "Бас маман — Lotus Domino DBA",
+          "Бизнес-талдаушы / Енгізу және тестілеу маманы",
+          "Енгізу және сүйемелдеу маманы"
+        ],
+        "experienceDetails": [
+          [
+            "Production 24/7: TIZILIM ГАЖ-ды іске қосу және сүйемелдеу, Debian 12 жүйесіндегі 5 серверде uptime <span class=\"counter\" data-target=\"99.9\" data-decimals=\"1\">0</span>%; сындарлы инциденттерді L2/L3 деңгейінде диагностикалау",
+            "Контейнерлік платформа: 10+ Docker контейнері (Laravel, Vue.js/React, Go, Redis, Meilisearch, pgAdmin), Docker Compose, volumes және persistent storage",
+            "Контейнерлік желі: микросервистердің тұрақты өзара әрекеттесуі үшін Docker networks пен MTU баптау және инфрақұрылымды көлденең масштабтауға дайындау",
+            "Жүктемені теңгеру және маршруттау: Nginx — L7 load balancer, reverse proxy және 6+ доменге SSL termination; Laravel, Vue.js/React және Go/WebSocket үшін routing rules және upstream",
+            "Қауіпсіздік: автоматты жаңартылатын Let's Encrypt сертификаттары, firewall rules, network segmentation және production сервистеріне қолжетімділікті басқару",
+            "Observability: Prometheus, Grafana, Loki, Alertmanager және Zabbix; 14 ереже, Telegram хабарламалары және инциденттерді 2 минутқа дейін анықтау; Nginx, Laravel және cron логтарын талдау және ротациялау",
+            "Деректер және іздеу: PostgreSQL 16.6, pg_hba.conf, slow queries, Redis 7.4 және Meilisearch 1.8; ДҚ жауап беру уақытын <span class=\"counter\" data-target=\"40\" data-decimals=\"0\">0</span>% қысқарту",
+            "Автоматтандыру және релиздер: Ansible (playbooks, roles, inventory), release_3.6.23 өрістету, dev.qazindustry.gov.kz ортасын клондау және баптау",
+            "Цифрлық сервистер: Wildcard SSL *.tizilim.gov.kz және Ubuntu 22.04 жүйесіндегі files.tizilim.gov.kz — құжаттарды жүктеу, сақтау, индекстеу және толықмәтінді іздеу",
+            "AI және команда: ҚР Өнеркәсіп министрлігіне арналған iDos әзірлеу (Python, Aiogram, MongoDB, ChromaDB, OpenAI, GLPI), 3 инженерді үйлестіру"
+          ],
+          [
+            "Бөлімді <span class=\"counter\" data-target=\"5.5\" data-decimals=\"1\">0</span> жыл басқару: жоспарлау, бақылау және есептілік — жоспардың 100% орындалуы",
+            "Сындарлы инфрақұрылым: ЦБДАН (<span class=\"counter\" data-target=\"100\" data-decimals=\"0\" data-suffix=\"M+\">0</span> абоненттік нөмір) және БДИК (ҚР IMEI тізілімі) — 5 жылда деректер жоғалтуы 0",
+            "Пайдалану: ЦБДАН, БДИК және оларға тартылған серверлік жабдықты мониторингтеу, жүйелік әкімшілендіру және сүйемелдеу",
+            "Басқарушылық аналитика: деректерді тұрақты жинау және талдау, тұрақты есептілікті автоматтандыру және тізілімдердің негізгі статистикалық көрсеткіштерін анықтау",
+            "Деректер қоймасы: DWH-ты нөлден құру (ETL, басқарушылық есептілік) — талдаушылардың қол еңбегін <span class=\"counter\" data-target=\"70\" data-decimals=\"0\">0</span>% қысқарту",
+            "Аналитика және сапа: есептер мен ДҚ-ны тестілеу, ҚР ЦДИАӨМ реттеушілік шешімдері үшін ЦБДАН/БДИК деректері мен статистикасын қалыптастыру",
+            "Ақпараттық қауіпсіздік: жедел және жинақталған деректердің өзектілігі мен тұтастығы, тізілімдерді рұқсатсыз қол жеткізуден қорғау",
+            "НҚА және бақылау: нормативтік және жергілікті актілерді, жоспарлар мен есептілікті әзірлеуге қатысу; серверлік және кросстық бөлмелерді тексеру"
+          ],
+          [
+            "Windows Server 2008 R2 және Lotus Domino v9.0 әкімшілендіру, Lotus стандартты қолданбаларының өнімділігін талдау және баптау",
+            "Дерекқорларды резервтік көшіру және қалпына келтіру, резервтік көшірмелерді бақылау қалпына келтіруімен тұрақты тексеру",
+            "Серверлік жабдықты, жүйелер мен қолданбалар өнімділігін мониторингтеу; ақауларды жедел жою және өтінімдерді орындау",
+            "IAM және қолдау: қолжетімділікті беру, шектеу және қайтарып алу, пайдаланушылар мәртебесін бақылау, клиенттерді сүйемелдеу және лицензияларды бақылау",
+            "Техникалық құжаттаманы дайындау және ішкі әрі сыртқы клиенттермен жұмыс кезінде туындайтын мәселелерді жедел шешу",
+            "ARIS/SAP: ARIS for SAP Solutions жүйесінде мақсатты бизнес-процесс сызбаларын әзірлеу, жұмыс тобына кеңес беру және оқыту"
+          ],
+          [
+            "Lotus Domino серверлерінің тапсырмаларын мониторингтеу, ДҚ резервтік көшіру және тіркеу нөмірлері шаблондарын, номенклатура мен ұйымдық құрылымды баптау",
+            "Пайдаланушы әрекеттері журналдарын талдау, бұғаттаулар мен репликация қателерін жою, есептегіштерді, жүйені және интерфейсті баптау",
+            "5+ мемлекеттік орган серверіндегі ДҚ-ны пайдалану: қате жойылған жобаларды қалпына келтіру, телнұсқаларды жою және пайдаланушыларға кеңес беру",
+            "Ведомстволық модульдер мен АЖ клиенттік жұмыс орындарын сүйемелдеу, өтініштерді маршруттауды және ілеспе хат үлгілерін баптау",
+            "Бақылау құжаттары, қызметтік құпия материалдар, өтініштер, НҚА және мемлекеттік органдар тапсырмалары бойынша арнайы есептер әзірлеу"
+          ],
+          [
+            "«Ұлттық медициналық холдинг» АҚ қызметкерлерін «ГИС» медициналық ақпараттық жүйесімен жұмыс істеуге оқыту",
+            "Толық циклді бизнес-талдауда 3 жылға жуық тәжірибе: тапсырыс берушінің процестерін зерделеу, талаптарды формализациялау және пайдаланушы міндеттерін әзірлеушілерге түсінікті спецификацияларға айналдыру",
+            "Функционалдық тестілеу: қателер мен ақауларды іздеу, жүйені кейін жетілдіру үшін штаттық және штаттан тыс сценарийлерді модельдеу",
+            "Талаптар спецификацияларын, тестілеу сценарийлері мен жоспарларын, пайдаланушы нұсқаулықтарын және енгізу құжаттамасын әзірлеу",
+            "МАЖ-ды 5 медициналық мекемеде енгізу, соның ішінде Республикалық нейрохирургия ғылыми орталығы, Оңалту диагностикалық орталығы және Ана мен бала ғылыми орталығы"
+          ],
+          [
+            "Объектіге бағытталған жобалау, C++ тілінде әзірлеу және тапсырыс берушілерге шот ұсыну жүйесін енгізуді сүйемелдеу",
+            "Жұмыс орындарын дайындау, БҚ тексеру, пайдаланушыларға кеңес беру, анықтамалық деректерді контент-серверлерге жүктеу және анықтамалық құжаттама жасау",
+            "Табиғи монополиялар қызметін мониторингтеу АЖ-ны республика бойынша сәтті өрістету және тәжірибелік пайдалануға енгізу",
+            "Функционалдық тестілеу: қателерді модельдеу, тест-жоспарларды, тестілік деректерді және пайдаланушы құжаттамасын дайындау"
+          ]
+        ],
+        "educationTitles": [
+          "Esil University, Астана",
+          "Ақмола қаржы-экономикалық колледжі"
+        ],
+        "educationDetails": [
+          "Бакалавр, Ақпараттық жүйелер / АКТ",
+          "Техник-бағдарламашы, ЕТ бағдарламалық жасақтамасы"
+        ],
+        "stackCategories": [
+          "ДҚБЖ",
+          "Мониторинг / Логтар",
+          "Автоматтандыру",
+          "Инфрақұрылым",
+          "Тілдер / Скрипттер",
+          "AI / Интеграциялар",
+          "Құралдар"
+        ],
+        "languageNames": [
+          "Қазақ тілі",
+          "Орыс тілі",
+          "Ағылшын тілі"
+        ],
+        "languageLevels": [
+          "Ана тілі (C2)",
+          "Еркін (C2)",
+          "Ортадан жоғары (B2)"
+        ],
+        "contactTitle": [
+          "Байланыс"
+        ],
+        "copyright": [
+          "&copy; <span id=\"currentYear\">2026</span> Симагомбетов Нартай"
+        ]
+      }
+    },
+    "en": {
+      "title": "Simagombetov Nartay — ICT Leader | DevOps / DBA",
+      "description": "Resume of Simagombetov Nartay — ICT leader with 15+ years in Kazakhstan’s public sector, DevOps, DBA and information security.",
+      "aria": {
+        "nav": "Primary navigation",
+        "scroll": "Scroll down",
+        "top": "Back to top",
+        "photo": "Simagombetov Nartay"
+      },
+      "sections": {
+        "skipLink": [
+          "Skip to content"
+        ],
+        "navigation": [
+          "About",
+          "Expertise",
+          "Experience",
+          "Education",
+          "Stack",
+          "Languages",
+          "Contacts"
+        ],
+        "location": [
+          "Astana, Kazakhstan",
+          "Astana, Kazakhstan"
+        ],
+        "eyebrow": [
+          "Leadership · Infrastructure · Data"
+        ],
+        "name": [
+          "Simagombetov<br>Nartay"
+        ],
+        "position": [
+          "ICT Leader · DevOps / DBA"
+        ],
+        "tagline": [
+          "Critical public-sector infrastructure · 15+ years in IT · 5+ years in leadership · Regulation · Security · Digital services"
+        ],
+        "downloadLabel": [
+          "Download CV"
+        ],
+        "experienceLabel": [
+          "View experience"
+        ],
+        "sectionTitles": [
+          "About",
+          "Core expertise",
+          "Work experience",
+          "Education",
+          "Technical stack",
+          "Languages",
+          "Professional approach"
+        ],
+        "about": [
+          "ICT leader and infrastructure engineer with 15+ years in Kazakhstan’s public sector. I led a database-support department for more than five years and was responsible for the national CBDAN and BDIK registries. I now operate the TIZILIM government platform 24/7 across five Debian servers, 10+ Docker containers, L2/L3 support, Nginx, PostgreSQL, Redis, Meilisearch and a full observability stack. I combine team leadership with hands-on engineering, Ansible automation, information security and AI-service development.",
+          "I combine leadership with hands-on operations: I can establish team processes and executive reporting, then personally diagnose a production incident, optimize a query, or configure a reverse proxy, monitoring stack or Ansible playbook. My priorities are measurable availability, tested recovery, data security and documentation that removes single-person dependency."
+        ],
+        "competencyTitles": [
+          "ICT leadership",
+          "Regulation and procedures",
+          "Information security",
+          "Project documentation",
+          "Infrastructure / DevOps",
+          "Databases",
+          "AI / Digital services"
+        ],
+        "competencyDescriptions": [
+          "Team leadership, planning, KPI control and executive reporting",
+          "Drafting information-system regulations and working with Kazakhstan’s digital-development ministry",
+          "Unauthorized-access protection, SSL/TLS, network segmentation, access control and audit trails",
+          "Technical specifications, architecture diagrams, implementation plans and requirements",
+          "Linux, Docker Compose, Nginx L7, Ansible, observability and L2/L3 production support",
+          "PostgreSQL 16, Redis, Meilisearch, MS SQL and Lotus Domino operations and optimization",
+          "Intelligent services and integrations with Python, Aiogram, MongoDB, ChromaDB and OpenAI API"
+        ],
+        "experienceDates": [
+          "Jun 2025 — Present",
+          "Nov 2019 — May 2025 (5 years 7 months)",
+          "Jun 2018 — Nov 2019 (1 year 6 months)",
+          "Jun 2014 — Jun 2018 (4 years 1 month)",
+          "Sep 2011 — Mar 2014 (2 years 7 months)",
+          "Nov 2010 — Sep 2011 (11 months)"
+        ],
+        "experienceCompanies": [
+          "QazIndustry — Kazakhstan Industry and Export Center JSC",
+          "State Radio Frequency Service, Ministry of Digital Development of Kazakhstan",
+          "Energoinform JSC",
+          "National Information Technologies JSC",
+          "Business Soft LLP",
+          "IT Research Center"
+        ],
+        "experienceRoles": [
+          "Deputy Head, Directorate for Digitalization and Transformation",
+          "Head of Database Support Department",
+          "Chief Specialist — DBA / System Administrator",
+          "Chief Specialist — Lotus Domino DBA",
+          "Business Analyst / Implementation and QA Specialist",
+          "Implementation and Support Specialist"
+        ],
+        "experienceDetails": [
+          [
+            "Production 24/7: launched and operated TIZILIM with <span class=\"counter\" data-target=\"99.9\" data-decimals=\"1\">0</span>% uptime across five Debian 12 servers; diagnosed critical incidents at L2/L3",
+            "Container platform: managed 10+ Docker containers (Laravel, Vue.js/React, Go, Redis, Meilisearch and pgAdmin), Docker Compose, volumes and persistent storage",
+            "Container networking: configured Docker networks and MTU for stable microservice communication and prepared the infrastructure for horizontal scaling",
+            "Load balancing and routing: configured Nginx as an L7 load balancer, reverse proxy and SSL termination point for 6+ domains, with routing rules and upstreams for Laravel, Vue.js/React and Go/WebSocket",
+            "Security: managed auto-renewing Let's Encrypt certificates, firewall rules, network segmentation and access control for production services",
+            "Observability: Prometheus, Grafana, Loki, Alertmanager and Zabbix; 14 rules, Telegram alerts and sub-two-minute incident detection; analysed and rotated Nginx, Laravel and cron logs",
+            "Data and search: PostgreSQL 16.6, pg_hba.conf, slow-query troubleshooting, Redis 7.4 and Meilisearch 1.8; reduced database response time by <span class=\"counter\" data-target=\"40\" data-decimals=\"0\">0</span>%",
+            "Automation and releases: Ansible playbooks, roles and inventory; deployed release_3.6.23 and cloned and configured dev.qazindustry.gov.kz",
+            "Digital services: managed Wildcard SSL for *.tizilim.gov.kz and delivered files.tizilim.gov.kz on Ubuntu 22.04 for document upload, storage, indexing and full-text search",
+            "AI and team: built iDos for Kazakhstan’s Ministry of Industry with Python, Aiogram, MongoDB, ChromaDB, OpenAI and GLPI, and coordinated three engineers"
+          ],
+          [
+            "Led the department for <span class=\"counter\" data-target=\"5.5\" data-decimals=\"1\">0</span> years, managing planning, control and reporting with 100% plan completion",
+            "Critical infrastructure: operated CBDAN (<span class=\"counter\" data-target=\"100\" data-decimals=\"0\" data-suffix=\"M+\">0</span> subscriber numbers) and BDIK (Kazakhstan’s IMEI registry) with zero data loss over five years",
+            "Operations: monitored, system-administered and supported CBDAN, BDIK and the server equipment used by both systems",
+            "Management analytics: continuously collected and analysed data, automated recurring reporting and defined the registries’ key statistical indicators",
+            "Data warehouse: built a DWH from scratch for ETL and management reporting, reducing analysts’ manual work by <span class=\"counter\" data-target=\"70\" data-decimals=\"0\">0</span>%",
+            "Analytics and quality: tested reports and databases and produced CBDAN/BDIK data and statistics for regulatory decisions by Kazakhstan’s digital-development ministry",
+            "Information security: maintained the relevance and integrity of operational and accumulated data and protected registries against unauthorised access",
+            "Regulation and control: contributed to regulations, internal acts, plans and reporting, and inspected server and cross-connect rooms"
+          ],
+          [
+            "Administered Windows Server 2008 R2 and Lotus Domino v9.0 and analysed and tuned the performance of standard Lotus applications",
+            "Backed up and restored databases and regularly verified backups through test recovery",
+            "Monitored server hardware and system and application performance, resolved incidents promptly and handled service requests",
+            "IAM and support: granted, restricted and revoked access, tracked user status, supported clients and monitored licence usage",
+            "Prepared technical documentation and resolved issues arising in work with internal and external clients",
+            "ARIS/SAP: designed target business-process models in ARIS for SAP Solutions and advised and trained the working group"
+          ],
+          [
+            "Monitored Lotus Domino server tasks, backed up databases and configured registration-number templates, nomenclature and organisational structures",
+            "Analysed user activity logs, resolved locks and replication errors, and configured counters, the system and its interface",
+            "Operated databases on servers for 5+ government agencies, recovered mistakenly deleted projects, removed duplicates and advised users",
+            "Supported departmental modules and IS client workstations and configured request routing and cover-letter templates",
+            "Built specialist reports for controlled documents, restricted materials, requests, regulations and government assignments"
+          ],
+          [
+            "Trained employees of the National Medical Holding to use the GIS medical information system",
+            "Nearly three years of full-cycle business analysis: studied customer processes, formalised requirements and translated user needs into specifications developers could act on",
+            "Performed functional testing, found defects and failures, and modelled normal and exception scenarios for subsequent system improvements",
+            "Produced requirements specifications, test scenarios and plans, user guides and implementation documentation",
+            "Implemented the medical information system in five healthcare institutions, including the National Center for Neurosurgery, the Rehabilitation Diagnostic Center and the Research Center for Maternal and Child Health"
+          ],
+          [
+            "Performed object-oriented design and C++ development and supported implementation of a customer billing system",
+            "Prepared workstations, verified software, advised users, loaded reference data to content servers and created support documentation",
+            "Successfully deployed a natural-monopoly activity monitoring system nationwide and brought it into pilot operation",
+            "Performed functional testing, modelled failures and prepared test plans, test data and user documentation"
+          ]
+        ],
+        "educationTitles": [
+          "Esil University, Astana",
+          "Akmola College of Finance and Economics"
+        ],
+        "educationDetails": [
+          "Bachelor’s degree, Information Systems / ICT",
+          "Software Technician, Computer Systems Software"
+        ],
+        "stackCategories": [
+          "Databases",
+          "Monitoring / Logs",
+          "Automation",
+          "Infrastructure",
+          "Languages / Scripting",
+          "AI / Integrations",
+          "Tools"
+        ],
+        "languageNames": [
+          "Kazakh",
+          "Russian",
+          "English"
+        ],
+        "languageLevels": [
+          "Native (C2)",
+          "Fluent (C2)",
+          "Upper-intermediate (B2)"
+        ],
+        "contactTitle": [
+          "Contacts"
+        ],
+        "copyright": [
+          "&copy; <span id=\"currentYear\">2026</span> Simagombetov Nartay"
+        ]
+      }
+    }
+  }
+}
