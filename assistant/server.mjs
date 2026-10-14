@@ -61,11 +61,19 @@ export function createServer({ apiKey = process.env.GEMINI_API_KEY, model = proc
         active++;
         try {
           const data = JSON.parse(await readFile(process.env.CV_CONTENT_FILE || path.join(root, 'content.json'), 'utf8'));
-          const response = await fetchImpl(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, {
+          const requestOptions = {
             method: 'POST', signal: AbortSignal.timeout(25_000),
             headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey.trim() },
             body: JSON.stringify({ systemInstruction: { parts: [{ text: systemPrompt(data, input.language) }] }, contents: [...input.history.map(item => ({ role: item.role, parts: [{ text: item.text }] })), { role: 'user', parts: [{ text: input.message }] }], generationConfig: { temperature: 0.2, maxOutputTokens: 900 } })
-          });
+          };
+          const providerUrl = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
+          let response;
+          for (let attempt = 0; attempt < 2; attempt++) {
+            response = await fetchImpl(providerUrl, requestOptions);
+            if (response.status < 500 || attempt === 1) break;
+            await response.body?.cancel();
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
           if (!response.ok) { console.error('Gemini HTTP status:', response.status); return json(response.status === 429 ? 429 : 502, { error: response.status === 429 ? 'rate_limited' : 'provider_unavailable' }); }
           const result = await response.json();
           const answer = result.candidates?.[0]?.content?.parts?.filter(part => !part.thought).map(part => part.text || '').join('').trim();

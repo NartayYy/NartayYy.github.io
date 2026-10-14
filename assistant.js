@@ -49,7 +49,10 @@
     const timer = setTimeout(() => controller.abort(), 35_000);
     send.disabled = true; mic.disabled = true; input.disabled = true; status.textContent = labels().thinking; panel.setAttribute('aria-busy', 'true');
     try {
-      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: JSON.stringify({ message: question, language: language(), history: history.slice(-12) }) });
+      const turns = history.slice(-12);
+      const payload = () => JSON.stringify({ message: question, language: language(), history: turns });
+      while (turns.length && new TextEncoder().encode(payload()).length > 30_000) turns.splice(0, 2);
+      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: payload() });
       if (response.status === 429) { const error = new Error('limit'); error.limited = true; throw error; }
       const result = await response.json();
       if (pending !== controller) return;
