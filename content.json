@@ -628,6 +628,7 @@
   },
   "assistant": {
     "enabled": true,
-    "endpoint": "https://kinbridge.us/api/cv-chat"
+    "endpoint": "https://kinbridge.us/api/cv-chat",
+    "speechEndpoint": "https://kinbridge.us/api/cv-speech"
   }
 }

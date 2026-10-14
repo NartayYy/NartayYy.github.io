@@ -1,53 +1,40 @@
-const assert = require('node:assert/strict');
-const path = require('node:path');
-let playwright;
-try { playwright = require('playwright'); } catch { playwright = require(path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')); }
-(async () => {
-  const { createServer } = await import('../assistant/server.mjs');
-  const server = createServer({ apiKey: '' }); await new Promise(r => server.listen(8787, '127.0.0.1', r));
-  let browser;
-  try {
-    browser = await playwright.chromium.launch({ headless: true, channel: 'msedge' });
-    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-    await page.addInitScript(() => {
-      class Recognition { constructor() { window.testRecognition = this; } start() {} abort() { window.testAborted = true; } }
-      window.SpeechRecognition = Recognition;
-      window.SpeechSynthesisUtterance = class { constructor(text) { this.text = text; } };
-      window.testVoices = [{voiceURI:'ru-1',name:'Russian 1',lang:'ru-RU'},{voiceURI:'ru-2',name:'Russian 2',lang:'ru-RU'},{voiceURI:'kk-1',name:'Kazakh',lang:'kk-KZ'}];
-      Object.defineProperty(window, 'speechSynthesis', { value: { cancel() {}, getVoices() { return [...window.testVoices]; }, speak(value) { window.testSpokenLanguage = value.lang; window.testVoiceURI = value.voice?.voiceURI; value.onend?.(); } } });
-    });
-    const errors = []; page.on('pageerror', e => errors.push(e.message));
-    await page.route('https://kinbridge.us/api/cv-chat', async route => {
-      const headers = { 'Access-Control-Allow-Origin': 'http://localhost:8787', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Methods': 'POST, OPTIONS' };
-      if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 204, headers });
-      const message = route.request().postDataJSON().message;
-      if (message === 'Slow question') await new Promise(resolve => setTimeout(resolve, 1200));
-      try { await route.fulfill({ status: 200, headers, contentType: 'application/json', body: JSON.stringify({ answer: 'PostgreSQL 16.6 — опыт из CV. ' + message + ' <script>malicious()</script>' }) }); } catch { /* aborted old request */ }
-    });
-    await page.goto('http://localhost:8787'); await page.locator('.cv-assistant__launcher').click();
-    await page.locator('.cv-assistant textarea').fill('Опыт PostgreSQL?'); await page.locator('.cv-assistant__send').click();
-    await page.waitForFunction(() => document.querySelector('.cv-assistant__messages').textContent.includes('PostgreSQL 16.6'));
-    assert.equal(await page.locator('.cv-assistant__messages script').count(), 0);
-    await page.locator('.cv-assistant__voice').selectOption('ru-2'); await page.locator('.cv-assistant__preview').click();
-    assert.equal(await page.evaluate(() => window.testVoiceURI), 'ru-2');
-    assert.equal(await page.evaluate(() => localStorage.getItem('cv-assistant-voice-ru')), 'ru-2');
-    await page.locator('.cv-assistant textarea').fill('Slow question'); await page.locator('.cv-assistant__send').click();
-    assert.equal(await page.locator('.cv-assistant textarea').isEnabled(), true);
-    await page.locator('.cv-assistant textarea').fill('опыт есть с sql'); await page.locator('.cv-assistant__send').click();
-    await page.waitForFunction(() => document.querySelector('.cv-assistant__messages').textContent.includes('CV. опыт есть с sql'));
-    await page.keyboard.press('Escape'); assert.equal(await page.locator('.cv-assistant__panel').isHidden(), true);
-    await page.setViewportSize({ width: 390, height: 844 }); await page.locator('.cv-assistant__launcher').click();
-    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-    await page.evaluate(() => window.siteI18n.applyLanguage('kk'));
-    await page.locator('.cv-assistant__mic').click(); assert.equal(await page.locator('.cv-assistant__mic').getAttribute('aria-pressed'), 'true');
-    await page.evaluate(() => window.testRecognition.onresult({ results: [[{ transcript: 'Тәжірибесі қандай?' }]] }));
-    await page.waitForFunction(() => window.testSpokenLanguage === 'kk-KZ');
-    await page.locator('.cv-assistant__mic').click(); await page.locator('.cv-assistant__close').click();
-    assert.equal(await page.evaluate(() => window.testAborted), true);
-    await page.evaluate(() => window.siteI18n.applyLanguage('en')); assert.match(await page.locator('.cv-assistant__launcher').innerText(), /AI assistant/);
-    await page.evaluate(() => window.siteI18n.applyLanguage('ru')); await page.locator('.cv-assistant__launcher').click();
-    await page.screenshot({ path: 'assistant-preview.tmp.png' });
-    assert.deepEqual(errors, []);
-    console.log('Browser passed: safe text, replacing pending questions, mobile, languages, voice selection and preview, microphone lifecycle, closing. API fixture used.');
-  } finally { await browser?.close(); await new Promise(r => server.close(r)); }
-})().catch(error => { console.error(error); process.exitCode = 1; });
+const assert = require('node:assert/strict'); const path = require('node:path');
+let playwright; try { playwright = require('playwright'); } catch { playwright = require(path.join(process.env.USERPROFILE, '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')); }
+const wav=Buffer.alloc(44+24000*2*2);wav.write('RIFF');wav.writeUInt32LE(wav.length-8,4);wav.write('WAVEfmt ',8);wav.writeUInt32LE(16,16);wav.writeUInt16LE(1,20);wav.writeUInt16LE(1,22);wav.writeUInt32LE(24000,24);wav.writeUInt32LE(48000,28);wav.writeUInt16LE(2,32);wav.writeUInt16LE(16,34);wav.write('data',36);wav.writeUInt32LE(wav.length-44,40);
+(async()=>{
+ const {createServer}=await import('../assistant/server.mjs');const server=createServer({apiKey:''});await new Promise(r=>server.listen(8787,'127.0.0.1',r));let browser;
+ try {
+  browser=await playwright.chromium.launch({headless:true,channel:'msedge'});const page=await browser.newPage({viewport:{width:1280,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.addInitScript(()=>{const visible=new EventTarget();visible.height=innerHeight;visible.offsetTop=0;window.testViewport=visible;Object.defineProperty(window,'visualViewport',{value:visible});});
+  let speechCalls=0;
+  await page.route('https://kinbridge.us/api/**',async route=>{
+   const headers={'Access-Control-Allow-Origin':'http://localhost:8787','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'POST, OPTIONS'};
+   if(route.request().method()==='OPTIONS')return route.fulfill({status:204,headers});
+   if(route.request().url().endsWith('cv-speech')){speechCalls++;return route.fulfill({status:200,headers,contentType:'audio/wav',body:wav});}
+   const message=route.request().postDataJSON().message;if(message==='Slow question')await new Promise(r=>setTimeout(r,1000));
+   try{await route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({answer:'Ответ CV. '+message+' <script>malicious()</script>',answerId:'00000000-0000-0000-0000-000000000001'})});}catch{}
+  });
+  await page.goto('http://localhost:8787');await page.locator('.cv-assistant__launcher').click();
+  assert.equal(await page.locator('.cv-assistant__mic,.cv-assistant__voice,.cv-assistant__preview').count(),0);
+  assert.equal(await page.locator('.cv-assistant__cv').count(),1);assert.equal(await page.locator('.cv-assistant__footer a').count(),0);assert.match(await page.locator('.cv-assistant__cv').getAttribute('href'),/assets\/cv.pdf/);
+  await page.locator('.cv-assistant textarea').fill('опыт есть с sql');await page.locator('.cv-assistant__send').click();await page.waitForFunction(()=>document.querySelector('.cv-assistant__messages').textContent.includes('Ответ CV. опыт есть с sql'));
+  assert.equal(await page.locator('.cv-assistant__messages script').count(),0);assert.equal(speechCalls,0);
+  await page.locator('.cv-assistant__audio').click();await page.waitForFunction(()=>document.querySelector('.cv-assistant__audio').getAttribute('aria-pressed')==='true');assert.equal(speechCalls,1);
+  await page.locator('.cv-assistant__audio').click();assert.equal(await page.locator('.cv-assistant__audio').getAttribute('aria-pressed'),'false');
+  await page.locator('.cv-assistant textarea').fill('Slow question');await page.locator('.cv-assistant__send').click();assert.equal(await page.locator('.cv-assistant textarea').isEnabled(),true);
+  await page.locator('.cv-assistant textarea').fill('Опыт DevOps');await page.locator('.cv-assistant__send').click();await page.waitForFunction(()=>document.querySelector('.cv-assistant__messages').textContent.includes('Ответ CV. Опыт DevOps'));
+  await page.keyboard.press('Escape');assert.equal(await page.locator('.cv-assistant__panel').isHidden(),true);
+  await page.setViewportSize({width:390,height:844});await page.evaluate(()=>{testViewport.height=844;testViewport.dispatchEvent(new Event('resize'));});await page.locator('.cv-assistant__launcher').click();
+  assert.equal(await page.locator('textarea').evaluate(el=>document.activeElement===el),false);
+  await page.evaluate(()=>{testViewport.height=340;testViewport.offsetTop=14;testViewport.dispatchEvent(new Event('resize'));});
+  const bounds=await page.locator('.cv-assistant__send').boundingBox();assert.ok(bounds.y+bounds.height<=354,JSON.stringify(bounds));
+  assert.equal(await page.locator('.cv-assistant__prompts').isHidden(),true);assert.equal(await page.locator('.cv-assistant__cv').isVisible(),true);
+  await page.screenshot({path:'assistant-keyboard.tmp.png'});
+  await page.evaluate(()=>{testViewport.height=844;testViewport.offsetTop=0;testViewport.dispatchEvent(new Event('resize'));});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+  await page.evaluate(()=>window.siteI18n.applyLanguage('kk'));assert.match(await page.locator('.cv-assistant__cv').innerText(),/CV/);
+  await page.evaluate(()=>window.siteI18n.applyLanguage('en'));assert.match(await page.locator('.cv-assistant__launcher').textContent(),/AI assistant/);
+  await page.evaluate(()=>window.siteI18n.applyLanguage('ru'));await page.screenshot({path:'assistant-preview.tmp.png'});
+  assert.deepEqual(errors,[]);console.log('Browser passed: text chat, one CV link, no microphone/voice menus, Gemini audio playback, pending replacement, mobile keyboard viewport, languages. API/audio fixtures used.');
+ }finally{await browser?.close();await new Promise(r=>server.close(r));}
+})().catch(e=>{console.error(e);process.exitCode=1});

@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { quickAnswer } from './quick-answers.mjs';
+import { createSpeechService } from './speech.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const languages = { ru: 'Russian', kk: 'Kazakh', en: 'English' };
@@ -35,14 +36,16 @@ CV DATA: ${JSON.stringify({ sections, contacts: data.contacts, stack: data.stack
 export function createServer({ apiKey = process.env.GEMINI_API_KEY, model = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite', fetchImpl = fetch, allowedOrigins, rateLimit = 20 } = {}) {
   const origins = new Set(allowedOrigins || (process.env.ALLOWED_ORIGINS || 'https://nartayyy.github.io,http://localhost:8787,http://127.0.0.1:8787').split(',').map(v => v.trim()));
   const requests = new Map();
+  const speech = createSpeechService({ apiKey, fetchImpl });
   let active = 0;
   const server = http.createServer(async (req, res) => {
     const origin = req.headers.origin;
-    const json = (status, data) => { res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); res.end(JSON.stringify(data)); };
+    let responseLanguage = 'ru';
+    const json = (status, data) => { if (status === 200 && typeof data.answer === 'string') data.answerId = speech.save(data.answer, responseLanguage); res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); res.end(JSON.stringify(data)); };
     if (origin && !origins.has(origin)) return json(403, { error: 'origin_not_allowed' });
     if (origin) { res.setHeader('Access-Control-Allow-Origin', origin); res.setHeader('Vary', 'Origin'); }
     const url = new URL(req.url, 'http://localhost');
-    if (url.pathname === '/api/chat') {
+    if (['/api/chat', '/api/speech'].includes(url.pathname)) {
       if (req.method === 'OPTIONS') { res.writeHead(204, { 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Max-Age': '600' }); return res.end(); }
       if (req.method !== 'POST') return json(405, { error: 'method_not_allowed' });
       if (!(req.headers['content-type'] || '').startsWith('application/json')) return json(415, { error: 'invalid_content_type' });
@@ -58,7 +61,16 @@ export function createServer({ apiKey = process.env.GEMINI_API_KEY, model = proc
         req.setTimeout(10_000, () => req.destroy());
         for await (const chunk of req) { size += chunk.length; if (size > 32_000) return json(413, { error: 'request_too_large' }); chunks.push(chunk); }
         req.setTimeout(0); // Provider requests have their own 25-second deadline.
-        const input = validateInput(JSON.parse(Buffer.concat(chunks).toString('utf8')));
+        const body = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+        if (url.pathname === '/api/speech') {
+          if (typeof body.answerId !== 'string' || !/^[a-f0-9-]{36}$/.test(body.answerId)) return json(400, { error: 'invalid_request' });
+          try {
+            const audio = await speech.generate(body.answerId);
+            res.writeHead(200, { 'Content-Type': 'audio/wav', 'Content-Length': audio.length, 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); return res.end(audio);
+          } catch (error) { return json(error.status || 502, { error: error.message === 'answer_expired' ? 'answer_expired' : 'speech_unavailable' }); }
+        }
+        const input = validateInput(body);
+        responseLanguage = input.language;
         if (active >= 8) return json(429, { error: 'rate_limited' });
         active++;
         try {

@@ -20,7 +20,7 @@ test('server uses trusted CV, protects secrets and handles upstream failures', a
   const post = (body, origin = 'https://nartayyy.github.io') => fetch(base + '/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin }, body: JSON.stringify(body) });
   const response = await post({ message: 'Объясни детали оптимизации PostgreSQL?', language: 'ru' });
   assert.equal(response.status, 200); assert.equal(response.headers.get('Access-Control-Allow-Origin'), 'https://nartayyy.github.io');
-  assert.deepEqual(await response.json(), { answer: 'Только факты CV.' });
+  const reply = await response.json(); assert.equal(reply.answer, 'Только факты CV.'); assert.match(reply.answerId, /^[a-f0-9-]{36}$/);
   assert.equal(call.options.headers['x-goog-api-key'], 'fake-secret');
   assert.match(JSON.parse(call.options.body).systemInstruction.parts[0].text, /PostgreSQL/);
   assert.equal((await post({ message: 'x', language: 'ru' }, 'https://evil.example')).status, 403);
