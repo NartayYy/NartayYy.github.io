@@ -18,7 +18,7 @@ test('server uses trusted CV, protects secrets and handles upstream failures', a
   t.after(() => new Promise(resolve => server.close(resolve)));
   const base = `http://127.0.0.1:${server.address().port}`;
   const post = (body, origin = 'https://nartayyy.github.io') => fetch(base + '/api/chat', { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin }, body: JSON.stringify(body) });
-  const response = await post({ message: 'Опыт с PostgreSQL?', language: 'ru' });
+  const response = await post({ message: 'Объясни детали оптимизации PostgreSQL?', language: 'ru' });
   assert.equal(response.status, 200); assert.equal(response.headers.get('Access-Control-Allow-Origin'), 'https://nartayyy.github.io');
   assert.deepEqual(await response.json(), { answer: 'Только факты CV.' });
   assert.equal(call.options.headers['x-goog-api-key'], 'fake-secret');
@@ -32,7 +32,7 @@ test('server uses trusted CV, protects secrets and handles upstream failures', a
 test('rate limit and missing key are explicit', async t => {
   const server = createServer({ apiKey: '', rateLimit: 1 });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve)); t.after(() => new Promise(resolve => server.close(resolve)));
-  assert.equal((await fetch(`http://127.0.0.1:${server.address().port}/api/chat`, { method: 'POST' })).status, 503);
+  assert.equal((await fetch(`http://127.0.0.1:${server.address().port}/api/chat`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Расскажи про неизвестную технологию', language: 'ru' }) })).status, 503);
   const limited = createServer({ apiKey: 'fake', rateLimit: 0 });
   await new Promise(resolve => limited.listen(0, '127.0.0.1', resolve)); t.after(() => new Promise(resolve => limited.close(resolve)));
   assert.equal((await fetch(`http://127.0.0.1:${limited.address().port}/api/chat`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' })).status, 429);
