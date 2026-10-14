@@ -2,6 +2,17 @@
 .cv-assistant button,.cv-assistant textarea { font:inherit; }
 .cv-assistant button { cursor:pointer; }
 .cv-assistant button:disabled { opacity:.55; cursor:default; }
+.cv-assistant [hidden] { display:none!important; }
+.cv-assistant__offer { border:1px solid var(--border); background:transparent; color:var(--accent); border-radius:8px; padding:8px 10px; width:100%; }
+.cv-assistant__proposal { padding:16px; overflow:auto; min-height:0; }
+.cv-assistant__proposal label { display:flex; flex-direction:column; gap:5px; margin-bottom:12px; font-size:13px; }
+.cv-assistant__proposal input:not([type=checkbox]) { width:100%; box-sizing:border-box; border:1px solid var(--border); border-radius:8px; padding:9px; background:var(--bg-primary); color:var(--text-primary); font:inherit; }
+.cv-assistant__proposal .cv-assistant__consent { flex-direction:row; align-items:flex-start; }
+.cv-assistant__proposal p { font-size:12px; line-height:1.5; }
+.cv-assistant__proposal button { border:1px solid var(--border); border-radius:8px; padding:9px 12px; color:var(--text-primary); background:var(--bg-tertiary); margin:4px 5px 4px 0; }
+.cv-assistant__proposal .cv-assistant__proposal-confirm,.cv-assistant__proposal .cv-assistant__review-button { background:var(--accent); color:var(--bg-primary); }
+.cv-assistant__proposal pre { font:inherit; font-size:14px; line-height:1.5; white-space:pre-wrap; overflow-wrap:anywhere; padding:12px; background:var(--bg-tertiary); border-radius:10px; }
+.cv-assistant__proposal .cv-assistant__honeypot { display:none; }
 .cv-assistant button:focus-visible,.cv-assistant textarea:focus-visible,.cv-assistant a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
 .cv-assistant__launcher { display:flex; align-items:center; gap:10px; border:1px solid rgba(var(--accent-rgb),.45); border-radius:18px; padding:12px 18px; color:var(--text-primary); background:var(--bg-secondary); box-shadow:var(--shadow-lg); font-weight:600!important; transition:box-shadow .2s,border-color .2s; }
 .cv-assistant__launcher:hover { border-color:var(--accent); box-shadow:0 6px 24px rgba(var(--accent-rgb),.2); }
@@ -37,6 +48,7 @@
   .cv-assistant__launcher { padding:10px 14px; font-size:13px!important; }
   .cv-assistant--open .cv-assistant__launcher { visibility:hidden; }
   .cv-assistant textarea { font-size:16px; }
+  .cv-assistant__proposal input { font-size:16px!important; }
   .cv-assistant__messages { min-height:0; }
   .cv-assistant--keyboard .cv-assistant__prompts,.cv-assistant--keyboard .cv-assistant__footer { display:none; }
   .cv-assistant--keyboard .cv-assistant__header { padding:10px 14px; }

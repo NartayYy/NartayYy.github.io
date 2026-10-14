@@ -629,6 +629,7 @@
   "assistant": {
     "enabled": true,
     "endpoint": "https://kinbridge.us/api/cv-chat",
-    "speechEndpoint": "https://kinbridge.us/api/cv-speech"
+    "speechEndpoint": "https://kinbridge.us/api/cv-speech",
+    "contactEndpoint": "https://kinbridge.us/api/cv-contact"
   }
 }

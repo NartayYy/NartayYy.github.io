@@ -2,4 +2,5 @@
 **/.env
 **/.env.*
 node_modules
+telegram.env
 tools

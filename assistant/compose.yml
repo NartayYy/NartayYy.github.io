@@ -4,7 +4,9 @@ services:
       context: ..
       dockerfile: assistant/Dockerfile
     restart: unless-stopped
-    env_file: ../.env
+    env_file:
+      - ../.env
+      - ../telegram.env
     environment:
       CV_CONTENT_FILE: /data/content.json
     volumes:

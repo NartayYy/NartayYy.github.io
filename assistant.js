@@ -85,6 +85,9 @@
     "audioTap": "Tap the speaker again to play."
   }
 };
+  Object.assign(text.ru, {"offer":"Оставить предложение","proposalName":"Ваше имя","proposalContact":"Телефон, email или Telegram","proposalMessage":"Сообщение или вакансия","proposalConsent":"Согласен отправить эти данные Нартаю в Telegram","proposalReview":"Проверить сообщение","proposalConfirm":"Отправить Нартаю","proposalEdit":"Изменить","proposalBack":"Вернуться в чат","proposalSent":"Предложение отправлено Нартаю. Он сможет ответить по указанному контакту.","proposalSending":"Отправляю…","proposalError":"Не удалось отправить предложение. Данные сохранены в форме — попробуйте позже.","proposalUnknown":"Не удалось подтвердить доставку. Повторная отправка автоматически не выполняется.","proposalNote":"Перед отправкой проверьте имя, контакт и текст. Отправляется только эта форма, без истории чата."});
+  Object.assign(text.kk, {"offer":"Ұсыныс қалдыру","proposalName":"Атыңыз","proposalContact":"Телефон, email немесе Telegram","proposalMessage":"Хабарлама немесе бос жұмыс орны","proposalConsent":"Бұл деректерді Нартайға Telegram арқылы жіберуге келісемін","proposalReview":"Хабарламаны тексеру","proposalConfirm":"Нартайға жіберу","proposalEdit":"Өзгерту","proposalBack":"Чатқа оралу","proposalSent":"Ұсыныс Нартайға жіберілді. Ол көрсетілген байланыс арқылы жауап бере алады.","proposalSending":"Жіберілуде…","proposalError":"Ұсыныс жіберілмеді. Деректер формада сақталған — кейін қайталап көріңіз.","proposalUnknown":"Жеткізуді растау мүмкін болмады. Автоматты қайта жіберу орындалмайды.","proposalNote":"Атыңызды, байланыс дерегін және мәтінді тексеріңіз. Чат тарихы жіберілмейді."});
+  Object.assign(text.en, {"offer":"Leave a proposal","proposalName":"Your name","proposalContact":"Phone, email or Telegram","proposalMessage":"Message or job opportunity","proposalConsent":"I agree to send these details to Nartay on Telegram","proposalReview":"Review message","proposalConfirm":"Send to Nartay","proposalEdit":"Edit","proposalBack":"Back to chat","proposalSent":"Your proposal was sent to Nartay. He can reply using your contact details.","proposalSending":"Sending…","proposalError":"Could not send the proposal. Your details remain in the form — try again later.","proposalUnknown":"Delivery could not be confirmed. No automatic resend was performed.","proposalNote":"Review your name, contact and message before sending. Only this form is sent, without chat history."});
   const language = () => text[document.documentElement.lang] ? document.documentElement.lang : 'ru';
   const labels = () => text[language()];
   const host = document.createElement('div'); host.className = 'cv-assistant';
@@ -93,7 +96,7 @@
       <header class="cv-assistant__header"><div><strong id="cv-assistant-title" data-ui="title"></strong><p class="cv-assistant__status" role="status"></p></div><button class="cv-assistant__close" type="button">×</button></header>
       <div class="cv-assistant__messages" role="log" aria-live="polite" aria-relevant="additions"></div><div class="cv-assistant__prompts"></div>
       <form class="cv-assistant__form"><label class="cv-assistant__input-label"><span class="sr-only" data-ui="placeholder"></span><textarea rows="2" maxlength="2000" required></textarea></label><div class="cv-assistant__controls"><a class="cv-assistant__cv" data-ui="cv"></a><button class="cv-assistant__send" type="submit" data-ui="send"></button></div></form>
-      <footer class="cv-assistant__footer"><p data-ui="privacy"></p></footer>
+      <form class="cv-assistant__proposal" hidden><div class="cv-assistant__proposal-fields"><p data-ui="proposalNote"></p><label><span data-ui="proposalName"></span><input name="name" autocomplete="name" required maxlength="100"></label><label><span data-ui="proposalContact"></span><input name="contact" autocomplete="email" required maxlength="160"></label><label><span data-ui="proposalMessage"></span><textarea name="message" rows="4" required maxlength="2000"></textarea></label><label class="cv-assistant__consent"><input name="consent" type="checkbox" required><span data-ui="proposalConsent"></span></label><input class="cv-assistant__honeypot" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button type="submit" class="cv-assistant__review-button" data-ui="proposalReview"></button></div><div class="cv-assistant__proposal-review" hidden><pre></pre><div><button type="button" class="cv-assistant__proposal-edit" data-ui="proposalEdit"></button><button type="button" class="cv-assistant__proposal-confirm" data-ui="proposalConfirm"></button></div></div><p class="cv-assistant__proposal-status" role="status"></p><button type="button" class="cv-assistant__proposal-back" data-ui="proposalBack"></button></form><footer class="cv-assistant__footer"><button type="button" class="cv-assistant__offer" data-ui="offer"></button><p data-ui="privacy"></p></footer>
     </section>`;
   document.body.append(host);
   const find = selector => host.querySelector(selector);
@@ -140,7 +143,7 @@
   function cancel() { stopAudio(); if (pending) { pending.abort(); pending = null; } send.disabled = false; input.disabled = false; panel.removeAttribute('aria-busy'); }
   function close() { open = false; cancel(); input.blur(); panel.hidden = true; host.classList.remove('cv-assistant--open'); launcher.setAttribute('aria-expanded', 'false'); launcher.focus(); }
   function localize() {
-    cancel(); clearAudio(); history = []; messages.replaceChildren();
+    hideProposal(); cancel(); clearAudio(); history = []; messages.replaceChildren();
     host.querySelectorAll('[data-ui]').forEach(el => { el.textContent = labels()[el.dataset.ui]; });
     input.placeholder = labels().placeholder; input.value = '';
     find('.cv-assistant__close').setAttribute('aria-label', labels().close); status.textContent = labels().ready;
@@ -176,7 +179,7 @@
   panel.addEventListener('keydown', event => {
     if (event.key === 'Escape') { event.preventDefault(); close(); }
     if (event.key !== 'Tab') return;
-    const elements = Array.from(panel.querySelectorAll('button:not(:disabled),textarea:not(:disabled),a[href]')); const first = elements[0], last = elements.at(-1);
+    const elements = Array.from(panel.querySelectorAll('button:not(:disabled),textarea:not(:disabled),input:not(:disabled),a[href]')).filter(element => element.getClientRects().length); const first = elements[0], last = elements.at(-1);
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   });
@@ -184,6 +187,42 @@
   window.visualViewport?.addEventListener('resize', viewport); window.visualViewport?.addEventListener('scroll', viewport); window.addEventListener('resize', viewport);
   document.addEventListener('visibilitychange', () => { if (document.hidden) stopAudio(); });
   window.addEventListener('pagehide', clearAudio);
+  const proposalForm = find('.cv-assistant__proposal'), proposalFields = find('.cv-assistant__proposal-fields'), proposalReview = find('.cv-assistant__proposal-review'), proposalStatus = find('.cv-assistant__proposal-status');
+  const confirmProposal = find('.cv-assistant__proposal-confirm');
+  let draft = null, draftSignature = '', submittingProposal = false;
+  function hideProposal() {
+    proposalForm.hidden = true; host.classList.remove('cv-assistant--proposal');
+    messages.hidden = false; find('.cv-assistant__prompts').hidden = false; find('.cv-assistant__form').hidden = false; find('.cv-assistant__footer').hidden = false;
+    find('#cv-assistant-title').textContent = labels().title;
+  }
+  find('.cv-assistant__offer').addEventListener('click', () => {
+    cancel(); if (!draft) { proposalFields.hidden = false; proposalReview.hidden = true; proposalStatus.textContent = ''; } proposalForm.hidden = false; host.classList.add('cv-assistant--proposal');
+    messages.hidden = true; find('.cv-assistant__prompts').hidden = true; find('.cv-assistant__form').hidden = true; find('.cv-assistant__footer').hidden = true;
+    find('#cv-assistant-title').textContent = labels().offer; status.textContent = labels().ready;
+  });
+  find('.cv-assistant__proposal-back').addEventListener('click', hideProposal);
+  proposalForm.addEventListener('submit', event => {
+    event.preventDefault(); if (submittingProposal || !proposalForm.reportValidity()) return;
+    const fields = new FormData(proposalForm);
+    const body = { name: fields.get('name').trim(), contact: fields.get('contact').trim(), message: fields.get('message').trim(), consent: fields.get('consent') === 'on', website: fields.get('website') || '' };
+    const signature = JSON.stringify(body);
+    if (signature !== draftSignature) { draft = { ...body, requestId: crypto.randomUUID() }; draftSignature = signature; }
+    proposalReview.querySelector('pre').textContent = labels().proposalName + ': ' + body.name + '\n' + labels().proposalContact + ': ' + body.contact + '\n\n' + body.message;
+    proposalFields.hidden = true; proposalReview.hidden = false; proposalStatus.textContent = ''; confirmProposal.focus();
+  });
+  find('.cv-assistant__proposal-edit').addEventListener('click', () => { if (submittingProposal) return; proposalFields.hidden = false; proposalReview.hidden = true; });
+  confirmProposal.addEventListener('click', async () => {
+    if (!draft || submittingProposal) return;
+    submittingProposal = true; confirmProposal.disabled = true; find('.cv-assistant__proposal-edit').disabled = true; proposalStatus.textContent = labels().proposalSending;
+    try {
+      const response = await fetch(config.contactEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(18_000), body: JSON.stringify(draft) });
+      const result = await response.json();
+      if (!response.ok || !result.sent) { const error = new Error('delivery'); error.unknown = result.error === 'delivery_unknown'; throw error; }
+      proposalStatus.textContent = labels().proposalSent; proposalReview.hidden = true; proposalFields.hidden = true; proposalForm.reset(); draft = null; draftSignature = '';
+    } catch (error) { proposalStatus.textContent = error.unknown || error.name === 'TimeoutError' ? labels().proposalUnknown : labels().proposalError; }
+    finally { submittingProposal = false; confirmProposal.disabled = false; find('.cv-assistant__proposal-edit').disabled = false; }
+  });
+
   localize(); viewport();
 
 })();
