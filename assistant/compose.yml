@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: assistant/Dockerfile
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      CV_CONTENT_FILE: /data/content.json
+    volumes:
+      - ../data:/data:ro
+    ports:
+      - "127.0.0.1:8787:8787"
+    mem_limit: 256m
+    cpus: 1
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"

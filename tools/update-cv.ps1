@@ -15,7 +15,7 @@ if (-not $targetFile.StartsWith($projectRoot + [System.IO.Path]::DirectorySepara
     throw 'CV destination must be inside the project.'
 }
 if ($sourceFile -ne $targetFile) { Copy-Item -LiteralPath $sourceFile -Destination $targetFile -Force }
-& python (Join-Path $PSScriptRoot 'build.py')
+& (Join-Path $PSScriptRoot 'build.ps1')
 if ($LASTEXITCODE -ne 0) { throw 'Build failed. Changes were not published.' }
 Write-Host 'CV updated. Run publish.cmd to publish, or use -Publish.'
 if ($Publish) { & (Join-Path $PSScriptRoot 'publish.ps1') -Message 'Update downloadable CV' }

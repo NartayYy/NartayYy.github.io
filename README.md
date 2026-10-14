@@ -64,3 +64,40 @@ python tools/build.py --check
 `content.json` — источник данных. `tools/index.template.html` — шаблон оформления. `index.html` и `content.js` создаются сборкой: не редактируйте их вручную. `i18n.js` отвечает за переключение языков, `tools/content-selectors.json` связывает названия полей с элементами страницы.
 
 Старая копия `assets/Симагамбетов_Нартай_CV.pdf` оставлена для совместимости с прежними прямыми ссылками. Кнопка сайта использует только `assets/cv.pdf`; при сборке копия тоже обновляется автоматически.
+
+## Голосовой помощник
+
+На сайте есть кнопка «Спросить о Нартае»: вопрос можно написать или произнести через микрофон. Gemini отвечает по данным сайта; браузер озвучивает ответы, если включена соответствующая опция. Это распознавание речи + текстовый Gemini + голос браузера, а не Gemini Live. Доступность голосового ввода и голосов (в том числе казахского) зависит от браузера и ОС. При отсутствии поддержки остаётся текстовый ввод. Разговор хранится только в памяти вкладки, закрытие прекращает запись и озвучивание.
+
+- API: https://kinbridge.us/api/cv-chat — отдельный Docker-контейнер на VPS, через существующий Nginx и HTTPS.
+- Ключ Gemini находится только в приватном файле ~/vcard-assistant/.env на сервере. Не добавляйте ключи в content.json или Git.
+- Настройки виджета: assistant.enabled и assistant.endpoint в content.json.
+- publish.cmd также обновляет данные CV на сервере через SSH-подключение my-vps. Доступ по ключу должен быть настроен. Изменение PDF само по себе не меняет факты в content.json.
+- Порт контейнера 8787 открыт только на loopback. Ограничения: 10 запросов в минуту на IP в Nginx (с небольшим запасом), общий лимит API 20 запросов в минуту, до 8 одновременных запросов.
+- По вопросам вне CV помощник должен честно сообщать, что данных нет. Генеративные ответы всё равно могут ошибаться.
+
+Запуск локально (Node.js 22+, без npm install):
+
+```powershell
+node --env-file="D:\project\Assistant\system\assistant\.env" assistant/server.mjs
+```
+
+Откройте http://localhost:8787. Если действующая сеть блокирует kinbridge.us, для локальной проверки временно задайте assistant.endpoint: "http://localhost:8787/api/chat" и пересоберите сайт. Публичный сайт должен использовать HTTPS API.
+
+Проверки:
+
+```powershell
+node --test assistant/server.test.mjs
+node tools/check-content.cjs
+.\tools\build.ps1 -Check
+```
+
+На сервере:
+
+```sh
+cd ~/vcard-assistant
+sudo docker compose -p vcard-assistant -f assistant/compose.yml ps
+sudo docker compose -p vcard-assistant -f assistant/compose.yml logs --tail 30
+```
+
+Для изменения кода API передайте папку assistant на сервер и пересоберите контейнер командой sudo docker compose -p vcard-assistant -f assistant/compose.yml up -d --build. Данные читаются из data/content.json без пересборки. install-nginx.py добавляет маршрут только в конфигурацию kinbridge.us и сохраняет резервную копию; выполнять его нужно только при первоначальном подключении маршрута.

@@ -427,3 +427,4 @@ window.siteContent = {
     }
   }
 };
+window.siteAssistant = {"enabled": true, "endpoint": "https://kinbridge.us/api/cv-chat", "cv": "assets/cv.pdf?v=8b46d6fe", "downloadName": "Симагамбетов_Нартай_CV.pdf"};

@@ -625,5 +625,9 @@
         ]
       }
     }
+  },
+  "assistant": {
+    "enabled": true,
+    "endpoint": "https://kinbridge.us/api/cv-chat"
   }
 }
