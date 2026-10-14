@@ -13,6 +13,7 @@
 .cv-assistant__proposal .cv-assistant__proposal-confirm,.cv-assistant__proposal .cv-assistant__review-button { background:var(--accent); color:var(--bg-primary); }
 .cv-assistant__proposal pre { font:inherit; font-size:14px; line-height:1.5; white-space:pre-wrap; overflow-wrap:anywhere; padding:12px; background:var(--bg-tertiary); border-radius:10px; }
 .cv-assistant__proposal .cv-assistant__honeypot { display:none; }
+.cv-assistant__proposal-fallback a { display:inline-block; color:var(--accent); padding:9px 4px; }
 .cv-assistant button:focus-visible,.cv-assistant textarea:focus-visible,.cv-assistant a:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
 .cv-assistant__launcher { display:flex; align-items:center; gap:10px; border:1px solid rgba(var(--accent-rgb),.45); border-radius:18px; padding:12px 18px; color:var(--text-primary); background:var(--bg-secondary); box-shadow:var(--shadow-lg); font-weight:600!important; transition:box-shadow .2s,border-color .2s; }
 .cv-assistant__launcher:hover { border-color:var(--accent); box-shadow:0 6px 24px rgba(var(--accent-rgb),.2); }

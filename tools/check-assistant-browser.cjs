@@ -6,12 +6,12 @@ const wav=Buffer.alloc(44+24000*2*2);wav.write('RIFF');wav.writeUInt32LE(wav.len
  try {
   browser=await playwright.chromium.launch({headless:true,channel:'msedge'});const page=await browser.newPage({viewport:{width:1280,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>{const visible=new EventTarget();visible.height=innerHeight;visible.offsetTop=0;window.testViewport=visible;Object.defineProperty(window,'visualViewport',{value:visible});});
-  let speechCalls=0, contactCalls=0;
+  let speechCalls=0, contactCalls=0, contactFail=false;
   await page.route('https://kinbridge.us/api/**',async route=>{
    const headers={'Access-Control-Allow-Origin':'http://localhost:8787','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'POST, OPTIONS'};
    if(route.request().method()==='OPTIONS')return route.fulfill({status:204,headers});
    if(route.request().url().endsWith('cv-speech')){speechCalls++;return route.fulfill({status:200,headers,contentType:'audio/wav',body:wav});}
-   if(route.request().url().endsWith('cv-contact')){contactCalls++; const body=route.request().postDataJSON(); assert.equal(body.consent,true); assert.equal(body.history,undefined); return route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({sent:true})});}
+   if(route.request().url().endsWith('cv-contact')){if(contactFail)return route.abort('blockedbyclient');contactCalls++; const body=route.request().postDataJSON(); assert.equal(body.consent,true); assert.equal(body.history,undefined); return route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({sent:true})});}
    const message=route.request().postDataJSON().message;if(message==='Slow question')await new Promise(r=>setTimeout(r,1000));
    try{await route.fulfill({status:200,headers,contentType:'application/json',body:JSON.stringify({answer:'Ответ CV. '+message+' <script>malicious()</script>',answerId:'00000000-0000-0000-0000-000000000001'})});}catch{}
   });
@@ -46,6 +46,17 @@ const wav=Buffer.alloc(44+24000*2*2);wav.write('RIFF');wav.writeUInt32LE(wav.len
   await page.locator('.cv-assistant__proposal-confirm').click();
   await page.waitForFunction(()=>document.querySelector('.cv-assistant__proposal-status').textContent.includes('отправлено'));
   assert.equal(contactCalls,1);
+  await page.locator('.cv-assistant__proposal-back').click(); await page.locator('.cv-assistant__offer').click();
+  await page.locator('.cv-assistant__proposal input[name=name]').fill('Test visitor');
+  await page.locator('.cv-assistant__proposal input[name=contact]').fill('visitor@example.com');
+  await page.locator('.cv-assistant__proposal textarea').fill('Blocked proposal');
+  await page.locator('.cv-assistant__proposal input[name=consent]').check(); await page.locator('.cv-assistant__review-button').click();
+  contactFail=true; await page.locator('.cv-assistant__proposal-confirm').click();
+  await page.locator('.cv-assistant__proposal-fallback').waitFor({state:'visible'});
+  assert.match(await page.locator('.cv-assistant__proposal-status').innerText(),/Нет соединения/);
+  assert.match(await page.locator('.cv-assistant__proposal-telegram').getAttribute('href'),/t.me\/NartayYy/);
+  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async value=>{window.testCopied=value;}}}));
+  await page.locator('.cv-assistant__proposal-copy').click(); assert.match(await page.evaluate(()=>window.testCopied),/Blocked proposal/);
   assert.deepEqual(errors,[]);console.log('Browser passed: text chat, one CV link, no microphone/voice menus, Gemini audio playback, pending replacement, mobile keyboard viewport, languages. API/audio fixtures used.');
  }finally{await browser?.close();await new Promise(r=>server.close(r));}
 })().catch(e=>{console.error(e);process.exitCode=1});
