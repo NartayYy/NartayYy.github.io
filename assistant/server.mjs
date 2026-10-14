@@ -56,6 +56,7 @@ export function createServer({ apiKey = process.env.GEMINI_API_KEY, model = proc
       try {
         req.setTimeout(10_000, () => req.destroy());
         for await (const chunk of req) { size += chunk.length; if (size > 32_000) return json(413, { error: 'request_too_large' }); chunks.push(chunk); }
+        req.setTimeout(0); // Provider requests have their own 25-second deadline.
         const input = validateInput(JSON.parse(Buffer.concat(chunks).toString('utf8')));
         if (active >= 8) return json(429, { error: 'rate_limited' });
         active++;
